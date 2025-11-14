@@ -7,6 +7,16 @@ nav: true
 nav_order: 6
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+Below is a list of courses I have had the pleasure of assisting with as a Graduate Student Instructor (GSI) at the University of Michigan.
 
-Organize your courses by years, topics, or universities, however you like!
+Mobile Robotics
+
+Role: Graduate Student Instructor
+
+Semesters: Winter 2025, Winter 2024
+
+Self Driving Car
+
+Role: Graduate Student Instructor
+
+Semester: Fall 2024
