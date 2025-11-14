@@ -30,6 +30,6 @@ I’m a second-year Ph.D. student in Robotics at the University of Michigan, Ann
 
 **Interests:** PEFT (LoRA/Quantization), **geometric** & equivariant learning (Lie groups/algebras), **sparsity**, **quantization**, and efficient structured matrices.
 
-**Experience:** Visual SLAM Intern @ Bear Robotics; Vison/Language AI Researcher @ Intellicon Metalab Inc.
+**Experience:** Visual SLAM Intern @ Bear Robotics; Generation Model AI Researcher @ Intellicon Metalab Inc.
 
 **Education:** B.S. in Mechanical & Aerospace Engineering, Seoul National University (2022).
