@@ -13,7 +13,7 @@
   contents:
     - title: PhD
       institution: University of Michigan, Ann Arbor, MI, USA
-      year: 2024 - 
+      year: 2024
       description:
         - Specialization in Neural Architecture Design, Efficient Parameterization, Geometric Representation Learning
     - title: B.S. in Mechanical and Aerospace Engineering
@@ -64,36 +64,39 @@
   contents:
     - title: Graduate Student Researcher
       institution: University of Michigan, Ann Arbor, MI, USA
-      year: Sep 2023 - Present
+      year: 2023.09 - Present
       description:
         - Research on geometric deep architecture design and visual navigation.
     - title: Research Assistant, ROAHM Lab
       institution: University of Michigan, Ann Arbor, MI, USA
-      year: Oct 2022 - Aug 2023
+      year: 2022.10 - 2023.08
       description:
         - Built MPPI control framework for dynamic locomotion of bipedal robot (Digit).
     - title: Research Intern, Robotic Automation Team
       institution: Bear Robotics, Redwood City, CA, USA
-      year: Jan 2022 - Apr 2022
+      year: 2022.01 - 2022.04
       description:
         - Developed factor graph optimization algorithms for 3D Visual-Odometry SLAM.
     - title: ML Research Associate, Customer Analysis Team
       institution: Intellicon Inc., Seoul, KR
-      year: May 2021 - Dec 2022
+      year: 2021.05 - 2022.12
       description:
         - Built BiLSTM-based NER model for legal document analysis.
     - title: Co-founder
       institution: OUTTA (AI Education Organization)
-      year: Jan 2021 - Present
+      year: 2021.01 - Present
       description:
         - Developed AI/Robotics bootcamps for 3,000+ underprivileged students / recent developers.
 
 - title: Teaching Experience
   type: time_table
   contents:
+    - title: Graduate Student Instructor, Computational Symmetry in AI & Robotics
+      institution: University of Michigan
+      year: Fall 2025
     - title: Graduate Student Instructor, Mobile Robotics
       institution: University of Michigan
-      year: Winter 2025, Winter 2024
+      year: Winter 2025/ 2024
     - title: Graduate Student Instructor, Self Driving Car
       institution: University of Michigan
       year: Fall 2024

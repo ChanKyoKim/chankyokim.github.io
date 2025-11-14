@@ -6,7 +6,7 @@ subtitle: Ph.D. Student in Robotics at the <a href='https://robotics.umich.edu/'
 
 profile:
   align: right
-  image: chankyo.jpg
+  image: chankyo2.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Ann Arbor, MI, USA</p>
@@ -26,12 +26,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I’m a Ph.D. student in Robotics at the University of Michigan, Ann Arbor, advised by Prof. Maani Ghaffari.
+I’m a second-year Ph.D. student in Robotics at the University of Michigan, Ann Arbor, advised by Prof. Maani Ghaffari. My work bridges the **mathematics of AI** and **network design on geometric structures** for reliable, efficient robotics.
 
-My research interests are at the intersection of robotics, geometric deep learning, and model efficiency. I develop robust and scalable AI systems by building foundational methods in:
+**Interests:** PEFT (LoRA/Quantization), **geometric** & equivariant learning (Lie groups/algebras), **sparsity**, **quantization**, and efficient structured matrices.
 
-Geometric & Equivariant AI: Leveraging principles from Lie Group theory to create architectures with strong generalization properties.
+**Experience:** Visual SLAM Intern @ Bear Robotics; Vison/Language AI Researcher @ Intellicon Metalab Inc.
 
-Efficient Deep Learning: Exploring Parameter-Efficient Fine-Tuning (PEFT), model compression (quantization, sparsity), and efficient structured matrices to make large models practical for real-world robotics.
-
-I was previously an AI Research Engineer at Intellicon Metalab Inc. and received my B.S. in Mechanical and Aerospace Engineering from Seoul National University in 2022.
+**Education:** B.S. in Mechanical & Aerospace Engineering, Seoul National University (2022).
