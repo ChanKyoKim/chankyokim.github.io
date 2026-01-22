@@ -36,10 +36,10 @@ Methodologically, I develop **geometric deep learning** (Lie groups/algebras; SO
 
 I’m also exploring **equivariant encodings of appearance**: lifting image/color signals into **spherical harmonics** and learning with **efficient equivariant networks**. I believe this opens a new design space for **vision encoders** and **latent world models** with stronger geometric inductive biases.
 
-If you’re interested in collaboration on **Spatial AI / world models**, **neural SLAM/VIO**, or **equivariant 3D representations in IMG/VIDEO**, feel free to reach out at **chankyo@umich.edu**.
+If you’re interested in collaboration on **Spatial AI / world models**, **neural SLAM/VIO**, or **equivariant 3D representations in IMG/VIDEO**, feel free to reach out at **chankyo@umich.edu**!
 
-**Interests:** Spatial AI / World Models, 3D/4D Gaussian Splatting, neural SLAM/VIO, equivariant learning (Lie groups/algebras), efficient architectures (PEFT, quantization, sparsity).
+<!-- **Interests:** Spatial AI / World Models, 3D/4D Gaussian Splatting, neural SLAM/VIO, equivariant learning (Lie groups/algebras), efficient architectures (PEFT, quantization, sparsity). -->
 
-**Experience:** Visual SLAM Researcher @ Bear Robotics; Generative Model AI Researcher @ Intellicon Metalab Inc.
+**Experience:** Visual SLAM Researcher @ **Bear Robotics**; Generative Model AI Researcher @ Intellicon Metalab Inc.
 
 **Education:** B.S. in Mechanical & Aerospace Engineering, Seoul National University (2022).
