@@ -376,16 +376,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-our-paper-equivariant-neural-networks-for-general-linear-symmetries-on-lie-algebras-reductive-lie-neurons-has-been-accepted-to-icml-2026-a-framework-for-gl-n-mathbb-r-equivariant-deep-learning-on-lie-algebras-arxiv",
+          title: 'Our paper Equivariant Neural Networks for General Linear Symmetries on Lie Algebras (Reductive...',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-excited-to-share-that-i-ve-joined-the-world-foundational-model-team-at-toyota-research-institute-tri-as-a-research-scientist-intern-in-los-altos-ca-i-m-working-on-representation-learning-and-world-models-for-robotics",
+          title: 'Excited to share that I’ve joined the World Foundational Model team at Toyota...',
           description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+          section: "News",},{id: "news-new-preprint-on-arxiv-e3dgs-unified-geometric-photometric-equivariance-for-3d-gaussian-splatting-via-color-as-geometry-embedding-we-show-that-low-degree-spherical-harmonic-color-is-algebraically-isomorphic-to-a-rank-2-geometric-tensor-enabling-a-unified-mathfrak-gl-3-embedding-for-se-3-equivariant-3dgs-without-clebsch-gordan-tensor-products-arxiv",
+          title: 'New preprint on arXiv: E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
