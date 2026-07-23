@@ -2,21 +2,21 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. Candidate in Robotics at the <a href='https://robotics.umich.edu/'>University of Michigan, Ann Arbor</a>.
+subtitle: Ph.D. Candidate in Robotics at the <a href='https://robotics.umich.edu/'>University of Michigan</a> · Research Scientist Intern, World Foundational Model Team, <a href='https://www.tri.global/'>Toyota Research Institute</a>
 
 profile:
   align: right
   image: chankyo2.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Ann Arbor, MI, USA</p>
-    <p>chankyo@umich.edu</p>
+    <p>World Foundational Model Team, TRI</p>
+    <p>Los Altos, CA, USA</p>
     
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: false # includes a list of news items
+  enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
@@ -26,19 +26,13 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I’m a second-year Ph.D. student in Robotics at the University of Michigan, Ann Arbor, advised by Prof. Maani Ghaffari. I work on **Spatial AI / World Models** for robotics—learning **predictive 3D scene representations** that support robust perception and action.
+I believe progress toward machine intelligence comes down to learning **good representations** of the world. What makes a representation *good*, to me, is not a single property but a few that reinforce one another. A good representation is **aligned**—it lines up with the meaning it should carry, and across the modalities and views it is drawn from. It is **controllable**—it factors the world into parts you can read off and intervene on independently, turning passive perception into prediction and planning. And it is **consistent**—it transforms lawfully as the world does, so the same scene from a new viewpoint or a later moment maps to a representation you can still trust. Geometric symmetry and equivariance, in this picture, are one instance of consistency—a clean and powerful one, but a single member of a larger family.
 
-My current research has two main thrusts:
-- **Real-time, city-scale neural VIO/SLAM:** designing an **efficient vision encoder** and temporal fusion for scalable localization and mapping under long-horizon motion and real-world domain shifts.
-- **Action-conditioned world modeling for manipulation:** learning **latent dynamics** from **3D/4D Gaussian Splatting** primitives to enable action-conditioned prediction and planning.
+I’m a second-year Ph.D. student in Robotics at the University of Michigan, Ann Arbor, advised by Prof. Maani Ghaffari, and currently a Research Scientist Intern at **Toyota Research Institute (TRI)**. Guided by this picture, I study **representation learning, alignment, and world models**, and I treat **world models** as the setting where all three properties have to hold at once: to predict and to act, a model must represent a scene it can *align* to observation, *factor* into controllable parts, and roll forward *consistently* under motion.
 
-Methodologically, I develop **geometric deep learning** (Lie groups/algebras; SO(3)/GL(n) equivariance) to enforce correct transformation rules and improve robustness and sample efficiency.
+Much of my work builds these properties in by **decomposing** a representation into parts with known transformation behavior—the controllable and consistent sides of a single idea. In [Reductive Lie Neurons](https://arxiv.org/abs/2510.22984) (ICML 2026), I design networks whose features stay consistent under general linear symmetries on Lie algebras. In [E3DGS](https://arxiv.org/abs/2607.15536), I carry this into appearance, proving that low-degree spherical-harmonic **color is algebraically a geometric tensor**—so geometry and appearance can be factored into one representation for action-conditioned Gaussian world modeling. In parallel, I work on **real-time, city-scale neural VIO/SLAM**, designing efficient visual encoders and temporal fusion for localization and mapping under long-horizon motion. Throughout, my aim is representations for **vision encoders and world models** that earn robustness and data efficiency from how they are built.
 
-I’m also exploring **equivariant encodings of appearance**: lifting image/color signals into **spherical harmonics** and learning with **efficient equivariant networks**. I believe this opens a new design space for **vision encoders** and **latent world models** with stronger geometric inductive biases.
-
-If you’re interested in collaboration on **Spatial AI / world models**, **neural SLAM/VIO**, or **equivariant 3D representations in IMG/VIDEO**, feel free to reach out at **chankyo@umich.edu**!
-
-<!-- **Interests:** Spatial AI / World Models, 3D/4D Gaussian Splatting, neural SLAM/VIO, equivariant learning (Lie groups/algebras), efficient architectures (PEFT, quantization, sparsity). -->
+If you’re interested in collaboration on **representation learning**, **world models**, **alignment**, or **equivariant / consistent 3D representations across images and video**, feel free to reach out at **chankyo@umich.edu**!
 
 **Experience:** Visual SLAM Researcher @ **Bear Robotics**; Generative Model AI Researcher @ Intellicon Metalab Inc.
 
