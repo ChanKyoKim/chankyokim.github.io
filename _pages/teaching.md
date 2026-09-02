@@ -2,21 +2,15 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: Courses I have taught as a Graduate Student Instructor at the University of Michigan.
 nav: true
 nav_order: 6
 ---
 
-Below is a list of courses I have had the pleasure of assisting with as a Graduate Student Instructor (GSI) at the University of Michigan.
+Courses I have assisted with as a Graduate Student Instructor (GSI) at the University of Michigan.
 
-Mobile Robotics
+**Computational Symmetry in AI & Robotics** — Fall 2025. Lie groups, equivariant networks, and their use in perception and control.
 
-Role: Graduate Student Instructor
+**Mobile Robotics** — Winter 2024, Winter 2025. State estimation, SLAM, and planning for mobile robots.
 
-Semesters: Winter 2025, Winter 2024
-
-Self Driving Car
-
-Role: Graduate Student Instructor
-
-Semester: Fall 2024
+**Self-Driving Cars** — Fall 2024. Perception, prediction, and planning for autonomous driving.

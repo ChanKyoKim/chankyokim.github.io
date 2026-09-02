@@ -2,16 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: Ph.D. Candidate in Robotics at the <a href='https://robotics.umich.edu/'>University of Michigan</a> · Research Scientist Intern, World Foundational Model Team, <a href='https://www.tri.global/'>Toyota Research Institute</a>
+subtitle: Ph.D. Candidate in Robotics at the <a href='https://robotics.umich.edu/'>University of Michigan</a> · Research Scientist Intern, World Foundation Model Team, <a href='https://www.tri.global/'>Toyota Research Institute</a>
 
 profile:
   align: right
   image: chankyo2.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>World Foundational Model Team, TRI</p>
+    <p>World Foundation Model Team, TRI</p>
     <p>Los Altos, CA, USA</p>
-    
+
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
@@ -26,14 +26,16 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I believe progress toward machine intelligence comes down to learning **good representations** of the world. What makes a representation *good*, to me, is not a single property but a few that reinforce one another. A good representation is **aligned**—it lines up with the meaning it should carry, and across the modalities and views it is drawn from. It is **controllable**—it factors the world into parts you can read off and intervene on independently, turning passive perception into prediction and planning. And it is **consistent**—it transforms lawfully as the world does, so the same scene from a new viewpoint or a later moment maps to a representation you can still trust. Geometric symmetry and equivariance, in this picture, are one instance of consistency—a clean and powerful one, but a single member of a larger family.
+I build world models that **remember, predict, and plan in 3D** — and I hold them to account in closed loop.
 
-I’m a second-year Ph.D. student in Robotics at the University of Michigan, Ann Arbor, advised by Prof. Maani Ghaffari, and currently a Research Scientist Intern at **Toyota Research Institute (TRI)**. Guided by this picture, I study **representation learning, alignment, and world models**, and I treat **world models** as the setting where all three properties have to hold at once: to predict and to act, a model must represent a scene it can *align* to observation, *factor* into controllable parts, and roll forward *consistently* under motion.
+**Remember.** A world model that forgets what it has seen cannot plan beyond its current frame. In [AnyWorld](/projects/anyworld/) I give a video world model a *persistent, renderable 3D memory*: every observation is lifted, feed-forward, into 3D Gaussians and accumulated into a single scene that the generator conditions on and can export. Persistence is what closes the coverage gap — 100% novel-view coverage where single-frame reconstruction leaves up to a quarter of the view unobserved — and it makes generation more stable and more obedient to the commanded trajectory.
 
-Much of my work builds these properties in by **decomposing** a representation into parts with known transformation behavior—the controllable and consistent sides of a single idea. In [Reductive Lie Neurons](https://arxiv.org/abs/2510.22984) (ICML 2026), I design networks whose features stay consistent under general linear symmetries on Lie algebras. In [E3DGS](https://arxiv.org/abs/2607.15536), I carry this into appearance, proving that low-degree spherical-harmonic **color is algebraically a geometric tensor**—so geometry and appearance can be factored into one representation for action-conditioned Gaussian world modeling. In parallel, I work on **real-time, city-scale neural VIO/SLAM**, designing efficient visual encoders and temporal fusion for localization and mapping under long-horizon motion. Throughout, my aim is representations for **vision encoders and world models** that earn robustness and data efficiency from how they are built.
+**Predict.** The right thing to predict is rarely pixels. I study which *latent* a world model should predict in (dynamics-aware video features re-identify occluded objects where image features cannot), build action-conditioned models that forecast a *distribution* over futures rather than a point estimate, and — with collaborators at MBZUAI — a [Gaussian world model](/projects/pushing-gaussians/) whose dynamics are rigid-body pose updates on the splats themselves, cheap enough to sit inside a planner's inner loop.
 
-If you’re interested in collaboration on **representation learning**, **world models**, **alignment**, or **equivariant / consistent 3D representations across images and video**, feel free to reach out at **chankyo@umich.edu**!
+**Plan, and evaluate closed-loop.** Offline metrics mislead: in our pushing benchmark the checkpoint with the lowest rollout error planned at a third of the best one's rate. So I evaluate where it counts — fine-tuning driving policies with RL inside the world model, benchmarking VLA policies inside [scenes the model generated](/projects/polaris-real2sim2real/) and closing the loop on a real robot, and planning with MPPI through the Gaussian world model.
 
-**Experience:** Visual SLAM Researcher @ **Bear Robotics**; Generative Model AI Researcher @ Intellicon Metalab Inc.
+Underneath all of this is a conviction about representations. A good one is **aligned** with the meaning it should carry, **controllable** — factored into parts you can read off and intervene on — and **consistent**: it transforms lawfully as the world does, so the same scene from a new viewpoint or a later moment maps to a representation you can still trust. My work on equivariance builds the third property in by construction: [Reductive Lie Neurons](https://arxiv.org/abs/2510.22984) (ICML 2026) for general linear symmetries on Lie algebras, and [E3DGS](/projects/e3dgs/), which proves that low-degree spherical-harmonic **color is algebraically a geometric tensor**, so geometry and appearance can share one $SE(3)$-equivariant representation.
 
-**Education:** B.S. in Mechanical & Aerospace Engineering, Seoul National University (2022).
+I am a Ph.D. candidate in Robotics at the University of Michigan, advised by [Prof. Maani Ghaffari](https://curly.engin.umich.edu/), and a Research Scientist Intern on the World Foundation Model team at Toyota Research Institute (2026). Before that I worked on factor-graph visual SLAM at **Bear Robotics**, and I co-founded [OUTTA](https://outta.ai/), an AI-education non-profit that has run bootcamps for 3,000+ students.
+
+If you work on **world models**, **3D/4D scene representations**, or **evaluation of embodied agents**, I would love to talk: **chankyo@umich.edu**.

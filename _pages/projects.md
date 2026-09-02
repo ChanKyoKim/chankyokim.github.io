@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
-nav: false
+description: World models that remember, predict, and plan in 3D — and the geometry underneath them.
+nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [world models, geometry]
 horizontal: false
 ---
 
