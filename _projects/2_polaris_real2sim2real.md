@@ -2,7 +2,7 @@
 layout: page
 title: Real grasps in a generated scene
 description: AnyWorld × PolaRiS — VLA policies evaluated inside a scene our world model generated, then closed real2sim2real on a real robot.
-img: assets/img/projects/three_backgrounds_ep0.jpg
+img: assets/img/projects/polaris_thumb.jpg
 importance: 2
 category: world models
 permalink: /projects/polaris-real2sim2real/
@@ -16,7 +16,7 @@ Toyota Research Institute, 2026 · food-bussing task · Isaac Sim · with the Po
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/scan_vs_generated_same_orbit.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/scan_vs_generated_same_orbit.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">
@@ -48,13 +48,13 @@ The evaluation observation is a three-layer composite: the **background is splat
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/ours_pi05_ep11.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/ours_pi05_ep11.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/ours_pi05_ep13.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/ours_pi05_ep13.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/ours_pi0fast_ep9.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/ours_pi0fast_ep9.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">
@@ -63,13 +63,13 @@ The evaluation observation is a three-layer composite: the **background is splat
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/theirs_pi0fast_ep10.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/theirs_pi0fast_ep10.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/theirs_pi05_ep2.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/theirs_pi05_ep2.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/theirs_rerun_ep2.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/theirs_rerun_ep2.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">

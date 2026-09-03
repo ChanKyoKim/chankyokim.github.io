@@ -16,7 +16,7 @@ Chankyo Kim, Vitor Guizilini, Maani Ghaffari · Toyota Research Institute, 2026 
 
 <div class="row justify-content-sm-center">
   <div class="col-sm-12 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/anyworld/forward_3up_scene012.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/anyworld/forward_3up_scene012.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">
@@ -112,7 +112,7 @@ Given one frame rendered from a real-to-sim scan of a manipulation station, AnyW
 
 <div class="row justify-content-sm-center">
   <div class="col-sm-8 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/polaris/anyworld_generation_161f.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/polaris/anyworld_generation_161f.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">

@@ -61,16 +61,16 @@ All eight are the same model, same planner, same seed — one run of the full 24
 
 <div class="row">
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task101_solved_clean_push.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task101_solved_clean_push.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task120_solved_corrections.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task120_solved_corrections.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task124_solved_long_haul.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task124_solved_long_haul.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task129_solved_rolling.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task129_solved_rolling.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">
@@ -79,16 +79,16 @@ All eight are the same model, same planner, same seed — one run of the full 24
 
 <div class="row">
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task117_failed_near_miss.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task117_failed_near_miss.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task131_failed_model_error.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task131_failed_model_error.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task102_failed_systematic.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task102_failed_systematic.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
   <div class="col-sm-3 mt-3 mt-md-0">
-    {% include video.liquid path="assets/video/pushing_gaussians/task103_failed_650mm.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
+    {% include video.liquid width="100%" path="assets/video/pushing_gaussians/task103_failed_650mm.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
   </div>
 </div>
 <div class="caption">
