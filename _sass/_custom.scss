@@ -1,0 +1,261 @@
+/*******************************************************************************
+ * Custom components: research pillars (about), project heroes, stat tiles,
+ * media grids and collapsible details. Uses al-folio theme variables so both
+ * light and dark themes work.
+ ******************************************************************************/
+
+// ---- Pillars (about page) --------------------------------------------------
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 1.75rem;
+  clear: both; // sit below the floating profile photo, never beside it
+}
+@media (max-width: 768px) {
+  .pillars { grid-template-columns: 1fr; }
+}
+.pillar {
+  display: block;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color) !important;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -14px rgba(0, 0, 0, 0.45);
+    h3 { color: var(--global-theme-color); }
+  }
+  img, video {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    display: block;
+  }
+  .body { padding: 0.85rem 1rem 1rem; }
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--global-theme-color);
+    margin-bottom: 0.3rem;
+  }
+  h3 {
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin: 0 0 0.35rem;
+    line-height: 1.25;
+  }
+  p {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin: 0;
+    color: var(--global-text-color-light);
+  }
+}
+
+// ---- Project pages ---------------------------------------------------------
+.pj-meta {
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  margin: -0.25rem 0 1rem;
+}
+.pj-lede {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  margin: 0 0 1.25rem;
+}
+.pj-hero {
+  margin: 0 0 0.4rem;
+  video, img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    background: #000;
+  }
+}
+.pj-cap {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--global-text-color-light);
+  margin: 0.45rem 0 1.25rem;
+}
+.pj-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+@media (max-width: 576px) {
+  .pj-stats { grid-template-columns: 1fr; }
+}
+.pj-stat {
+  border: 1px solid var(--global-divider-color);
+  border-radius: 10px;
+  padding: 0.9rem 1rem 0.95rem;
+  background: var(--global-card-bg-color);
+  .n {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--global-theme-color);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .l {
+    font-size: 0.84rem;
+    line-height: 1.35;
+    color: var(--global-text-color-light);
+    margin-top: 0.3rem;
+  }
+}
+.pj-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0.25rem;
+  video, img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    background: #000;
+  }
+  &.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  &.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  &.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+  .pj-grid.c3, .pj-grid.c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.pj-take {
+  border-left: 3px solid var(--global-theme-color);
+  background: var(--global-card-bg-color);
+  border-radius: 0 8px 8px 0;
+  padding: 0.65rem 1rem;
+  margin: 1.25rem 0;
+  line-height: 1.5;
+}
+.pj-h {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.6rem;
+}
+details.pj-more {
+  border-top: 1px solid var(--global-divider-color);
+  margin: 1.5rem 0 0;
+  padding-top: 0.8rem;
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--global-theme-color);
+    list-style: none;
+    &::-webkit-details-marker { display: none; }
+    &::before { content: "▸  "; }
+  }
+  &[open] summary::before { content: "▾  "; }
+  table { font-size: 0.9rem; margin-top: 0.75rem; }
+  .pj-h { font-size: 1.1rem; margin-top: 1.25rem; }
+}
+
+// ---- Projects index --------------------------------------------------------
+.pj-section {
+  margin: 0 0 2.5rem;
+  &:first-child .pj-section-head { margin-top: 0.5rem; }
+}
+.pj-section-head {
+  margin: 1.5rem 0 1rem;
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--global-theme-color);
+    margin-bottom: 0.25rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    line-height: 1.2;
+  }
+  p {
+    margin: 0;
+    color: var(--global-text-color-light);
+    line-height: 1.5;
+    max-width: 44rem;
+  }
+}
+.pj-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--global-card-bg-color);
+  color: var(--global-text-color) !important;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px -14px rgba(0, 0, 0, 0.45);
+    h3 { color: var(--global-theme-color); }
+  }
+  .media {
+    background: #000;
+    min-height: 100%;
+    video, img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  .body {
+    padding: 1.1rem 1.25rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    line-height: 1.25;
+  }
+  p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin: 0 0 0.6rem;
+    color: var(--global-text-color-light);
+  }
+  .result {
+    color: var(--global-text-color);
+    font-weight: 500;
+  }
+  .more {
+    margin-top: auto;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--global-theme-color);
+  }
+}
+@media (max-width: 768px) {
+  .pj-feature { grid-template-columns: 1fr; }
+}
+.pj-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0;
+  li {
+    padding: 0.45rem 0;
+    border-top: 1px solid var(--global-divider-color);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--global-text-color-light);
+    a { font-weight: 600; }
+    .sep { margin: 0 0.5rem; }
+  }
+}

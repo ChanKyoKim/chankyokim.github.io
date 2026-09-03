@@ -1,31 +1,54 @@
 ---
 layout: page
 title: AnyWorld
-description: What should a world model remember? A persistent, renderable 3D Gaussian memory for video world models.
+description: A persistent, renderable 3D Gaussian memory for video world models — every frame lifted feed-forward into Gaussians the generator conditions on and can export.
+hero_video: assets/video/anyworld/forward_3up_scene012.mp4
+result: 100% novel-view coverage at 45 m · rollouts track the recorded drive on 38/39 held-out scenes · exported 3D beats the backbone's own head.
 img: assets/img/projects/anyworld_thumb.jpg
 importance: 1
-category: world models
+category: worlds that remember
 permalink: /projects/anyworld/
 ---
 
-<p class="text-muted">
-Chankyo Kim, Vitor Guizilini, Maani Ghaffari · Toyota Research Institute, 2026 · paper in submission (CVPR 2027)
-</p>
+<p class="pj-meta">Chankyo Kim, Vitor Guizilini, Maani Ghaffari · Toyota Research Institute, 2026 · in submission (CVPR 2027)</p>
 
-**One sentence.** We give a video-diffusion world model (NVIDIA's Lyra-2) a *persistent, renderable 3D memory*: every frame's metric depth is lifted, feed-forward, through a trainable per-pixel Gaussian head and accumulated into a single 3D Gaussian scene that the generator conditions on and can export. What the memory buys is not fidelity but **coverage** — the model keeps seeing what it has already seen — and that is what keeps it on the road.
+<p class="pj-lede">A video world model forgets what leaves its context window, so it invents a new street every few seconds. We give it a <strong>persistent, renderable 3D memory</strong>: every frame is lifted, feed-forward, into 3D Gaussians and accumulated into one scene the generator conditions on and can export. The memory buys <strong>coverage</strong>, not fidelity — the model keeps seeing what it has already seen, and that is what keeps it on the road.</p>
 
-<div class="row justify-content-sm-center">
-  <div class="col-sm-12 mt-3 mt-md-0">
-    {% include video.liquid width="100%" path="assets/video/anyworld/forward_3up_scene012.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
-  </div>
+<div class="pj-hero">
+  <video src="{{ '/assets/video/anyworld/forward_3up_scene012.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
 </div>
-<div class="caption">
-  Same first frame, same recorded camera trajectory (0.02 m/frame), held-out Waymo drive. Left: ground truth. Middle: the stock model tears into texture and leaves the road it was told to follow. Right: ours stays a coherent street. Frames stop being a scene and become surface when nothing forces the next frame to agree with what was already drawn.
+<p class="pj-cap">Same first frame, same recorded trajectory, held-out Waymo drive. <strong>Left</strong> ground truth · <strong>middle</strong> the stock model tears into texture and leaves the road · <strong>right</strong> ours stays a coherent street.</p>
+
+<div class="pj-stats">
+  <div class="pj-stat"><div class="n">100%</div><div class="l">novel-view coverage at 45 m of ego motion — single-frame reconstruction leaves 23% of the view unobserved (+4.2 dB)</div></div>
+  <div class="pj-stat"><div class="n">38 / 39</div><div class="l">held-out drives where the rollout tracks the recorded trajectory more closely than the base model; stops respected 8/9 vs 3/9</div></div>
+  <div class="pj-stat"><div class="n">17.65 dB</div><div class="l">the exported 3D scene beats the backbone's own 3DGS head (17.04 dB) on 33/40 held-out views, built online one frame at a time</div></div>
 </div>
 
-## Why a memory, and why a renderable one
+<h2 class="pj-h">What we built</h2>
 
-Frame-wise plausible, world-wise inconsistent: a video world model without state is **non-metric** (no distances, so nothing can be checked), **non-persistent** (what leaves the window ceases to exist), **non-editable** (no handle to change the scene) and **non-exportable** (the world cannot be handed to anything else). Lyra-2 stores each frame as sparse coloured 3D points and uses them only as a warp hint for the frozen video prior — never as an authoritative render. `FeedForward3DGS` keeps the same *add observation → query memory* contract, but the memory is now an explicit, renderable, metric world state:
+NVIDIA's Lyra-2 conditions its video prior on a sparse point cache that is never rendered. We replace it with `FeedForward3DGS`: frozen Depth Anything 3 gives dense metric depth per frame, a trainable per-pixel Gaussian head refines it, and the Gaussians accumulate into a single world-frame scene. Same *add observation → query memory* contract — but now the memory renders from any pose, exports as a 3DGS file, and is the model's 3D output rather than an internal trick.
+
+<h2 class="pj-h">What it changes</h2>
+
+Rendered into the generator's conditioning stream (only a 0.3B-parameter adapter is fine-tuned; the backbone stays frozen), the memory keeps the generator honest about *where it is*: 2.2× less flicker, graceful degradation when the ego drives faster than the training band, and trajectory-speed adherence — the base model's scene churns 3–4× faster than the footage, ours tracks it at 1.05–1.1× and reproduces a real stop. The same memory is addressable: open-vocabulary features attached to the Gaussians let text locate and edit objects, and spatial questions answered from the memory are right 0.92 of the time vs 0.37 for a pixel VLM.
+
+<div class="pj-grid c2">
+  <img src="{{ '/assets/img/projects/anyworld_3d_export_vs_native_head.jpg' | relative_url }}" alt="Exported 3D scene vs the backbone's native head">
+  <img src="{{ '/assets/img/projects/anyworld_spatial_qa.png' | relative_url }}" alt="Spatial QA accuracy from the memory vs a pixel VLM">
+</div>
+<p class="pj-cap"><strong>Left</strong> held-out real view: ground truth, Lyra-2's native GS head, our first attempt (a ghost per frame), and ours writing each object once — 17.65 vs 17.04 dB, 100% vs 98.9% coverage. <strong>Right</strong> “is the near object closer than the far houses?” under a camera-pitch sweep — reading the 3D memory vs Qwen2.5-7B reading pixels.</p>
+
+<h2 class="pj-h">Why it matters</h2>
+
+<div class="pj-take">A world model without state is frame-wise plausible and world-wise inconsistent — non-metric, non-persistent, non-editable, non-exportable. An explicit, renderable, metric world state fixes all four at once, and it is the substrate everything downstream needs: <a href="{{ '/projects/polaris-real2sim2real/' | relative_url }}">policy evaluation inside generated scenes</a>, off-policy training data, and language-addressed control.</div>
+
+Honest limits: the trained head does not beat the zero-shot depth splat on *static* single-image synthesis (persistence, not per-frame fidelity, is the win); pure in-place rotation has no translation baseline and is handled by a different mechanism; and a camera driven faster than the training distribution silently empties the cache — an operational trap we documented so nobody measures a memory that is off.
+
+<details class="pj-more" markdown="1">
+<summary>Details — method, tables, ablations, and the claims we killed</summary>
+
+<h3 class="pj-h">Memory contract</h3>
 
 | capability | sparse point cache (Lyra-2) | FeedForward3DGS (ours) |
 |---|---|---|
@@ -34,13 +57,9 @@ Frame-wise plausible, world-wise inconsistent: a video world model without state
 | export as a 3DGS scene | ✗ | ✓ |
 | full Gaussian parameters | ✗ | ✓ |
 
-Per frame: image → frozen Depth Anything 3 (dense metric depth, sky, confidence) → trainable per-pixel Gaussian head (zero-initialised, so the untrained head is exactly the raw depth splat) → world-frame Gaussians → `gsplat` rasterisation. One per-scene scalar aligns scale to metric, so the memory stays plug-compatible with the generator.
+<h3 class="pj-h">Persistence vs single-frame reconstruction (Waymo)</h3>
 
-## 1 — Persistence closes the coverage gap
-
-Static single-image novel-view synthesis is a tie — the trained head does not beat the zero-shot depth splat — so that is the wrong yardstick. The capability gap is **persistence**: the memory accumulates many frames into one scene and can render views whose content the nearest single frame never saw (the ego drove on, turned, or the region was occluded). Measured against ego displacement between source and query view on Waymo:
-
-| ego displacement | single-frame reconstruction — coverage / PSNR | persistent memory — coverage / PSNR | ΔPSNR |
+| ego displacement | single frame — coverage / PSNR | persistent memory — coverage / PSNR | ΔPSNR |
 |---|---|---|---|
 | 5 m  | 98.3% / 26.13 | 100% / 27.70 | +1.57 |
 | 10 m | 95.2% / 23.76 | 100% / 25.91 | +2.15 |
@@ -48,84 +67,44 @@ Static single-image novel-view synthesis is a tie — the trained head does not 
 | 30 m | 84.7% / 18.20 | 100% / 21.63 | +3.42 |
 | 45 m | 77.4% / 15.53 | 100% / 19.72 | +4.19 |
 
-A single reconstruction leaves up to ~23% of the query view unrendered — geometry it never observed. The persistent memory stays at 100% coverage and the gap widens with distance. (100% coverage ≠ perfect geometry: filled content warps with baseline, which is why absolute PSNR stays modest.)
+100% coverage ≠ perfect geometry: filled content warps with baseline (monocular depth error amplified by displacement), which is why absolute PSNR stays modest.
 
-## 2 — The memory is the 3D output, and it beats the backbone's own 3DGS head
+<h3 class="pj-h">How the memory is written</h3>
 
-If the memory were only an internal trick nobody outside the model could use it. It is the output: one rollout produces both a video and a renderable scene. Same sequence, same 41 context frames, same 40 held-out ground-truth poses, same rasteriser — against Lyra-2's native 3DGS reconstruction head, the best 3D output the backbone ships:
-
-<div class="row justify-content-sm-center">
-  <div class="col-sm-10 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/anyworld_3d_export_vs_native_head.jpg" title="3D export vs native head" class="img-fluid rounded z-depth-1" %}
-  </div>
+<div class="pj-grid">
+  <img src="{{ '/assets/img/projects/anyworld_memory_write_ablation.jpg' | relative_url }}" alt="Memory write ablation">
 </div>
-<div class="caption">
-  Held-out real Waymo view. Top right: Lyra-2's native GS head (coverage 98%). Bottom left: our first attempt — naive accumulation writes a ghost per frame. Bottom right: writing each object once. <strong>17.65 vs 17.04 dB PSNR, better on 33 of 40 paired views (p &lt; 0.0001), 100% vs 98.9% coverage</strong> — built online, one frame at a time, where the incumbent needs all frames at once.
+<p class="pj-cap">Left to right: ground truth; the native head; writing everything opaque (a ghost per frame); deleting the dynamics (holes where the cars were); writing the most recent observation of each object (ours).</p>
+
+<h3 class="pj-h">Conditioning results</h3>
+
+- Arms: *stock* Lyra-2, *frozen* (our conditioning, no fine-tuning), *ours* (conditioning + fine-tuned 0.3B adapter; FSDP on up to 16 GPUs).
+- Flicker (adjacent-frame LPIPS): 0.043 ours vs 0.093 stock vs 0.126 frozen; ours wins 6/6 forward scenes and is sharper, not blurrier. The frozen arm is worst on nearly every metric — the fine-tuning is load-bearing.
+- Speed adherence on a real ego path with a stop (optical-flow magnitude vs footage): stock 3.0–4.4× real motion on every measure; ours 1.04–1.09×.
+- Out-of-band speed: +1.1 → +2.2 → +3.1 → +3.0 dB over stock as ego speed increases; stock collapses monotonically.
+- Long horizon (96 s from one frame): ours lower LPIPS than stock in every quarter (a uniform offset, not a widening gap); what widens is the baselines' late-frame collapse rate.
+
+<div class="pj-grid c2">
+  <img src="{{ '/assets/img/projects/anyworld_degradation_over_horizon.png' | relative_url }}" alt="LPIPS vs GT by rollout quarter">
+  <img src="{{ '/assets/img/projects/anyworld_language_field.jpg' | relative_url }}" alt="Language field on the memory">
 </div>
+<p class="pj-cap"><strong>Left</strong> LPIPS against ground truth by rollout quarter on real trajectories. <strong>Right</strong> a generated frame, the same frame after “a car” is suppressed where the text located it in the memory, and the difference.</p>
 
-<div class="row justify-content-sm-center">
-  <div class="col-sm-12 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/anyworld_memory_write_ablation.jpg" title="how the memory is written" class="img-fluid rounded z-depth-1" %}
-  </div>
+<h3 class="pj-h">Zero-shot on a robot workcell</h3>
+
+<div class="pj-grid">
+  <video src="{{ '/assets/video/polaris/anyworld_generation_161f.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
 </div>
-<div class="caption">
-  How you write the memory decides what it is worth. Left to right: ground truth; the native head; writing everything opaque (a ghost per frame); deleting the dynamics (holes where the cars were); writing the most recent observation of each object (ours).
-</div>
+<p class="pj-cap">161 frames generated from a single frame of a manipulation station — the only input to the 3D field used in <a href="{{ '/projects/polaris-real2sim2real/' | relative_url }}">Real grasps in a generated scene</a>.</p>
 
-## 3 — As conditioning, it keeps the generator on the recorded drive
+<h3 class="pj-h">Claims we killed ourselves</h3>
 
-We render the memory into the generator's conditioning stream and fine-tune only the conditioning adapter (~0.3B parameters; the diffusion backbone stays frozen; FSDP on up to 16 GPUs). Arms: *stock* Lyra-2, *frozen* (our conditioning, no fine-tuning), *ours*.
+- “Sharpness gap grows 2.2× over long rollouts” — the Laplacian sharpness proxy rewards texture, not correctness; retracted, replaced with GT-referenced LPIPS on 10 real ego-paths × 3 seeds with paired tests.
+- “Our 3DGS export beats the incumbent” (first version) — p = 0.14 and detail at 53% of ground truth: we had won MSE by blurring. Re-earned by writing each object once.
+- “The trained head has no effect” — arms with and without the head were byte-identical because the head was never wired in on that machine. A load log proves a weight was read, not applied.
 
-- **Follows the recorded ego-trajectory** — lower LPIPS against ground truth than the base model on **38 of 39** probes (161 frames each, Waymo validation, paired Wilcoxon); when the recorded car stops, ours stops (**8/9** stops respected vs 3/9).
-- **2.2× less flicker** (adjacent-frame LPIPS 0.043 vs 0.093 stock vs 0.126 frozen) and sharper, not blurrier. The frozen arm is worst on nearly every metric: the fine-tuning is load-bearing.
-- **Obeys the commanded speed** — on a real ego path with a stop, the stock model's scene churns 3–4× faster than the footage on every optical-flow measure; ours tracks real motion at 1.04–1.09×. The rendered memory is a pixel-space anchor for *how far the scene should have moved*.
-- **Degrades gracefully** as speed leaves the training band (+1.1 → +3.1 dB over stock) and stays a street 2–3× longer on 96-second rollouts from a single frame.
+<h3 class="pj-h">Status</h3>
 
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/anyworld_degradation_over_horizon.png" title="degradation over horizon" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  LPIPS against ground truth by rollout quarter on real trajectories. Ours is lowest in every quarter — a uniform offset rather than a widening gap; what does widen is the late-frame collapse rate of the baselines.
-</div>
+In submission to CVPR 2027. Weights, evaluation scripts and md5 manifests released internally at TRI. Next: training the Gaussian head jointly through the generator's diffusion loss, and object slots in the memory for dynamics.
 
-## 4 — A memory you can address
-
-Because the memory is an explicit 3D state, other things can read and write it. Attaching open-vocabulary features (SAM × SigLIP2) to the same Gaussians lets text *locate* an object in the memory and a command written to the same place *change* what gets generated; and spatial questions can be answered from the geometry instead of from where things sit in the image.
-
-<div class="row">
-  <div class="col-sm-7 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/anyworld_language_field.jpg" title="language field on the memory" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-5 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/projects/anyworld_spatial_qa.png" title="spatial QA from the memory" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-<div class="caption">
-  Left: generated frame, the same frame after the command "a car" is suppressed where the text located it, and the difference. Right: "is the near object closer than the far houses?" under a camera-pitch sweep — reading the 3D memory answers correctly 0.92 of the time vs 0.37 for a pixel VLM (Qwen2.5-7B), n = 76.
-</div>
-
-## 5 — The same model, zero-shot, on a robot workcell
-
-Given one frame rendered from a real-to-sim scan of a manipulation station, AnyWorld rolls the scene forward and its accumulated Gaussian field becomes a simulation background in which real VLA policies are evaluated — see [Real grasps in a generated scene](/projects/polaris-real2sim2real/).
-
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include video.liquid width="100%" path="assets/video/polaris/anyworld_generation_161f.mp4" class="img-fluid rounded z-depth-1" controls=true autoplay=true loop=true muted=true %}
-  </div>
-</div>
-<div class="caption">
-  161 frames generated from a single input frame of a manipulation workcell — the only input to the 3D field used downstream.
-</div>
-
-## Claims we killed ourselves
-
-- "Sharpness gap grows 2.2× over long rollouts" — the Laplacian sharpness proxy rewards texture, not correctness (a hallucinated gravel field scores "sharp"); retracted from the README with a note, replaced by GT-referenced LPIPS with seeds and paired tests.
-- "Our 3DGS export beats the incumbent" (first version) — the paired test said p = 0.14 and detail was 53% of ground truth; we had won MSE by blurring. Re-earned later by writing each object once.
-- "The trained head has no effect" — arms with and without the head produced byte-identical output. The head was never wired in on that machine; a load log proves a weight was read, not applied.
-- **Out-of-band speed silently empties the memory** — drive faster than the training distribution and the cache rejects every frame; the run continues with no memory at all. Rankings taken out of band measure how gracefully a checkpoint melts, not how well it works.
-
-## Status
-
-Paper in submission to CVPR 2027. Weights, evaluation scripts and md5 manifests are released internally at TRI. Next: training the Gaussian head jointly through the generator's diffusion loss so memory and generator are learned as one system, and object slots in the memory for dynamics.
+</details>
