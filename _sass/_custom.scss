@@ -83,7 +83,8 @@
   margin: 0 0 1.25rem;
 }
 .pj-hero {
-  margin: 0 0 0.4rem;
+  max-width: 86%;
+  margin: 0 auto 0.4rem;
   video, img {
     width: 100%;
     display: block;
@@ -91,6 +92,9 @@
     background: #000;
   }
 }
+.pj-hero + .pj-cap { max-width: 86%; margin-left: auto; margin-right: auto; }
+.pj-grid.pj-hero { margin: 1rem auto 0.4rem; }
+.pj-grid.narrow { max-width: 72%; margin-left: auto; margin-right: auto; }
 .pj-cap {
   font-size: 0.85rem;
   line-height: 1.45;
@@ -204,7 +208,7 @@ details.pj-more {
 .pj-feature {
   display: grid;
   margin-bottom: 0.9rem;
-  grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   border: 1px solid var(--global-divider-color);
   border-radius: 10px;
   overflow: hidden;
@@ -233,6 +237,13 @@ details.pj-more {
     display: flex;
     flex-direction: column;
   }
+  .status {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.35rem;
+  }
   h3 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -259,13 +270,22 @@ details.pj-more {
 // wide variant: media stacked on top at its natural aspect (for side-by-side comparison clips)
 .pj-feature.wide {
   grid-template-columns: 1fr;
+  .media { padding: 0.75rem 0.75rem 0; background: var(--global-card-bg-color); }
   .media video, .media img {
     height: auto;
     aspect-ratio: auto;
     object-fit: contain;
+    border-radius: 6px;
   }
   .body { padding-top: 0.9rem; }
   .more { margin-top: 0.2rem; }
+}
+// text variant: no media (papers without a teaser figure yet)
+.pj-feature.text {
+  grid-template-columns: 1fr;
+  .body { padding: 0.95rem 1.25rem 1rem; }
+  h3 { font-size: 1.1rem; }
+  .more { margin-top: 0.35rem; }
 }
 @media (max-width: 768px) {
   .pj-feature { grid-template-columns: 1fr; }

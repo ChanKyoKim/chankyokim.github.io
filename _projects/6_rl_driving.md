@@ -2,6 +2,7 @@
 layout: page
 title: Learning the curve
 description: A diffusion-policy driving model fine-tuned with closed-loop RL in simulation, with one road-relative reward — and the result reported as a probability, seeds and limits included.
+status: Toyota Research Institute · 2026 · interim report
 hero_video: assets/video/rl_driving/rl_finetuned_unseen_curve.mp4
 result: Unseen-curve completion 1/6 → 3/6 (p = 0.047) · lane-center error 0.44–0.56 m on completed runs · three limits measured and reproduced.
 img: assets/img/projects/rl_driving_thumb.jpg
@@ -14,7 +15,7 @@ permalink: /projects/rl-driving/
 
 <p class="pj-lede">Imitation gives a driving policy the average of what it saw. Post-training with reinforcement learning lets it improve on its own rollouts. We fine-tuned a diffusion-policy driving model in closed loop inside a simulator, with a single road-relative reward, and asked one question: does it take a curve it has never seen at lane center more often than the model it started from? <strong>It does — and we report exactly how often.</strong></p>
 
-<div class="pj-grid c2">
+<div class="pj-grid c2 pj-hero">
   <video src="{{ '/assets/video/rl_driving/rl_base_unseen_curve.mp4' | relative_url }}" autoplay loop muted playsinline></video>
   <video src="{{ '/assets/video/rl_driving/rl_finetuned_unseen_curve.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>

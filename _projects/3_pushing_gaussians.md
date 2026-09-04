@@ -2,6 +2,7 @@
 layout: page
 title: Pushing Gaussians
 description: A learned world model over a 3D Gaussian scene — dynamics as rigid-body pose updates on the splats — with a sampling planner in closed loop on top.
+status: UMich × MBZUAI · 2026 · in progress
 hero_video: assets/video/pushing_gaussians/task124_solved_long_haul.mp4
 result: 0/24 → 49% per attempt, 79% within three tries, 23/24 tasks solved · offline error did not predict closed-loop success.
 img: assets/img/projects/pushing_gaussians_thumb.jpg
@@ -14,7 +15,7 @@ permalink: /projects/pushing-gaussians/
 
 <p class="pj-lede">A 3DGS scene is a photograph in three dimensions: it has no idea what happens if you push the object in the middle of it. We built a world model that predicts exactly that, put a sampling planner on top, and asked a robot to push reconstructed objects onto goal poses within 30 mm. <strong>It started at 0 of 24 tasks. It ends at 49% per attempt and 79% within three tries.</strong></p>
 
-<div class="pj-grid c4">
+<div class="pj-grid c4 pj-hero">
   <video src="{{ '/assets/video/pushing_gaussians/task101_solved_clean_push.mp4' | relative_url }}" autoplay loop muted playsinline></video>
   <video src="{{ '/assets/video/pushing_gaussians/task124_solved_long_haul.mp4' | relative_url }}" autoplay loop muted playsinline></video>
   <video src="{{ '/assets/video/pushing_gaussians/task129_solved_rolling.mp4' | relative_url }}" autoplay loop muted playsinline></video>

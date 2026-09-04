@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Reductive Lie Neurons
-description: Equivariant neural networks for general linear symmetries on Lie algebras (ICML 2026).
+description: Equivariant neural networks for general linear symmetries on Lie algebras — twists, covariances and Gaussian shape matrices transform lawfully with the frame they are expressed in.
+result: ReLN-Gaussian-MAE reaches 95.2% under arbitrary rotations on ShapeSplat where non-equivariant baselines fall to 18.3%.
+status: ICML 2026
 importance: 5
 category: geometry that moves
 permalink: /projects/reln/

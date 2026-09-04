@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: World models that remember, act, and hold up in the real world — three lines of work, one stack.
+description: From representation to control — three lines of work, one stack. Status is marked on every card; several of these are in progress.
 nav: true
 nav_order: 3
 pillars:
@@ -39,6 +39,17 @@ pillars:
             {% endif %}
           </div>
           <div class="body">
+            {% if project.status %}<div class="status">{{ project.status }}</div>{% endif %}
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            {% if project.result %}<p class="result">{{ project.result }}</p>{% endif %}
+            <span class="more">Read the project →</span>
+          </div>
+        </a>
+      {% else %}
+        <a class="pj-feature text" href="{{ project.url | relative_url }}">
+          <div class="body">
+            {% if project.status %}<div class="status">{{ project.status }}</div>{% endif %}
             <h3>{{ project.title }}</h3>
             <p>{{ project.description }}</p>
             {% if project.result %}<p class="result">{{ project.result }}</p>{% endif %}
@@ -47,14 +58,6 @@ pillars:
         </a>
       {% endif %}
     {% endfor %}
-    {% assign textonly = categorized | where_exp: "item", "item.img == nil" %}
-    {% if textonly.size > 0 %}
-      <ul class="pj-list">
-      {% for project in textonly %}
-        <li><a href="{{ project.url | relative_url }}">{{ project.title }}</a><span class="sep">—</span>{{ project.description }}</li>
-      {% endfor %}
-      </ul>
-    {% endif %}
   </section>
 {% endfor %}
 </div>

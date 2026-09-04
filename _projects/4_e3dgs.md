@@ -1,7 +1,9 @@
 ---
 layout: page
 title: E3DGS
-description: Color as a geometric tensor — geometry and appearance share one SE(3)-equivariant representation for 3DGS (ICLR 2027 submission).
+description: Color as a geometric tensor — spherical-harmonic color up to degree 2 is isomorphic to a rank-2 tensor, so geometry and appearance share one SE(3)-equivariant representation for 3DGS.
+result: One gl(3) embedding for position, covariance and color; no Clebsch–Gordan tensor products.
+status: arXiv 2026 · in submission (ICLR 2027)
 importance: 4
 category: geometry that moves
 permalink: /projects/e3dgs/
