@@ -27,6 +27,6 @@ A scene representation is only as trustworthy as its behaviour under a change of
 
 <h2 class="pj-h">Where it leads</h2>
 
-E3DGS is the geometry half of a longer line: a Gaussian world model whose dynamics are rigid-body pose updates on the splats themselves ([Pushing Gaussians](/projects/pushing-gaussians/)), and, at TRI, a persistent Gaussian memory for video world models ([AnyWorld](/projects/anyworld/)).
+E3DGS is the geometry half of a longer line: a Gaussian world model whose dynamics are rigid-body pose updates on the splats themselves ([the Gaussian world model](/projects/gaussian-world-model/)), and, at TRI, a persistent Gaussian memory for video world models ([AnyWorld](/projects/anyworld/)).
 
 <!-- TODO(chankyo): add the paper's teaser figure at assets/img/projects/e3dgs_teaser.png and set `img:` in the front matter -->

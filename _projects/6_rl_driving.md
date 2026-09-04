@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Learning the curve
+title: Closed-loop RL for a driving policy
 description: A diffusion-policy driving model fine-tuned with closed-loop RL in simulation, with one road-relative reward — and the result reported as a probability, seeds and limits included.
 status: Toyota Research Institute · 2026 · interim report
 hero_video: assets/video/rl_driving/rl_finetuned_unseen_curve.mp4

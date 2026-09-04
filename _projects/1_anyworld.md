@@ -29,7 +29,7 @@ permalink: /projects/anyworld/
 
 <h2 class="pj-h">What we built</h2>
 
-AnyWorld has two parts: a feed-forward Gaussian memory and a video generator that conditions on it. The memory lifts each frame into metric 3D Gaussians — a frozen depth foundation model supplies dense metric depth, a learned per-pixel head predicts the Gaussian parameters — and accumulates them in a world frame, writing each object once. The generator is trained to condition on renders of that memory along the camera path, so what the model has already seen constrains what it produces next. Because the memory renders from any pose and exports as a standard 3DGS scene, it is the model's 3D output as well as its state.
+AnyWorld has two parts: a feed-forward Gaussian memory and a video generator that conditions on it. The memory lifts each frame into metric 3D Gaussians — a frozen depth foundation model supplies dense metric depth, a learned per-pixel head predicts the Gaussian parameters — and accumulates them in a world frame, writing each object once. The generator is trained to condition on renders of that memory along the camera path, so what the model has already seen constrains what it produces next. Both parts are trained on driving video at scale (up to 16 GPUs). Because the memory renders from any pose and exports as a standard 3DGS scene, it is the model's 3D output as well as its state.
 
 <h2 class="pj-h">What it changes</h2>
 
@@ -99,7 +99,7 @@ Limits. The learned Gaussian head does not beat a zero-shot depth splat on stati
 <div class="pj-grid">
   <video src="{{ '/assets/video/polaris/anyworld_generation_161f.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
-<p class="pj-cap">161 frames generated from a single frame of a manipulation station — the only input to the 3D field used in <a href="{{ '/projects/polaris-real2sim2real/' | relative_url }}">Real grasps in a generated scene</a>.</p>
+<p class="pj-cap">161 frames generated from a single frame of a manipulation station — the only input to the 3D field used in <a href="{{ '/projects/polaris-real2sim2real/' | relative_url }}">Policy evaluation in a generated scene</a>.</p>
 
 <h3 class="pj-h">What changed between drafts</h3>
 

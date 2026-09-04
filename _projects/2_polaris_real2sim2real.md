@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Real grasps in a generated scene
+title: Policy evaluation in a generated scene
 description: VLA policies evaluated inside a scene the world model generated from a single frame — one file changed, everything else byte-identical — with the ranking carried back to a real robot.
 status: Toyota Research Institute · 2026 · in progress
 hero_video: assets/video/polaris/ours_pi05_ep11.mp4

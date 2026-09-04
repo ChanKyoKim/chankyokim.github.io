@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started a collaboration with Prof. Xingxing Zuo's group at MBZUAI on **Gaussian-splatting world models for robot manipulation** — first results in [Pushing Gaussians](/projects/pushing-gaussians/).
+Started a collaboration with Prof. Xingxing Zuo's group at MBZUAI on **Gaussian-splatting world models for robot manipulation** — first results on the [Gaussian world model](/projects/gaussian-world-model/) page.

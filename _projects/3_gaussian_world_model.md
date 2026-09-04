@@ -1,19 +1,19 @@
 ---
 layout: page
-title: Pushing Gaussians
-description: A learned world model over a 3D Gaussian scene — dynamics as rigid-body pose updates on the splats — with a sampling planner in closed loop on top.
+title: Gaussian World Model
+description: A learned dynamics model over a 3D Gaussian scene — rigid-body pose updates on the splats — with a sampling planner in closed loop on top; on the Pushing Gaussians benchmark, from 0/24 to 49% per attempt.
 status: UMich × MBZUAI · 2026 · in progress
 hero_video: assets/video/pushing_gaussians/task124_solved_long_haul.mp4
 result: 0/24 → 49% per attempt, 79% within three tries, 23/24 tasks solved · offline error did not predict closed-loop success.
 img: assets/img/projects/pushing_gaussians_thumb.jpg
 importance: 3
 category: geometry that moves
-permalink: /projects/pushing-gaussians/
+permalink: /projects/gaussian-world-model/
 ---
 
-<p class="pj-meta">University of Michigan (Prof. Maani Ghaffari) × MBZUAI (Prof. Xingxing Zuo's group), 2026 · the Gaussian-world-model line that follows <a href="{{ '/projects/e3dgs/' | relative_url }}">E3DGS</a></p>
+<p class="pj-meta">University of Michigan (Prof. Maani Ghaffari) × MBZUAI (Prof. Xingxing Zuo's group), 2026 · model-based planning on a 3D Gaussian representation · follows <a href="{{ '/projects/e3dgs/' | relative_url }}">E3DGS</a></p>
 
-<p class="pj-lede">A 3DGS scene is a photograph in three dimensions: it has no idea what happens if you push the object in the middle of it. We built a world model that predicts exactly that, put a sampling planner on top, and asked a robot to push reconstructed objects onto goal poses within 30 mm. <strong>It started at 0 of 24 tasks. It ends at 49% per attempt and 79% within three tries.</strong></p>
+<p class="pj-lede">A 3DGS scene is a photograph in three dimensions: it has no idea what happens if you push the object in the middle of it. We built a world model that predicts exactly that, put a sampling planner on top, and asked a robot to push reconstructed objects onto goal poses within 30 mm — a 24-task benchmark we call Pushing Gaussians. <strong>It started at 0 of 24 tasks. It ends at 49% per attempt and 79% within three tries.</strong></p>
 
 <div class="pj-grid c4 pj-hero">
   <video src="{{ '/assets/video/pushing_gaussians/task101_solved_clean_push.mp4' | relative_url }}" autoplay loop muted playsinline></video>
