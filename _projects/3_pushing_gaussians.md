@@ -15,10 +15,10 @@ permalink: /projects/pushing-gaussians/
 <p class="pj-lede">A 3DGS scene is a frozen photograph in three dimensions — it has no idea what happens if you shove the thing in the middle of it. We built a world model that predicts exactly that, put a sampling planner on top, and asked a robot to push reconstructed objects onto goal poses within 30 mm. It started at <strong>0 / 24</strong>. It ends at <strong>49% per attempt</strong> and <strong>79% within three tries</strong>.</p>
 
 <div class="pj-grid c4">
-  <video src="{{ '/assets/video/pushing_gaussians/task101_solved_clean_push.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/pushing_gaussians/task124_solved_long_haul.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/pushing_gaussians/task129_solved_rolling.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/pushing_gaussians/task120_solved_corrections.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task101_solved_clean_push.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task124_solved_long_haul.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task129_solved_rolling.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task120_solved_corrections.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
 <p class="pj-cap">Four solved tasks, same model, same planner, same seed. Green ghost = goal pose, orange arrow = current error, red vector = the action being executed. <strong>Left to right:</strong> one committed push; a 217 mm long haul in a chain of short pushes; a rolling object that keeps going after contact; repeated corrections re-approaching from a new side.</p>
 
@@ -37,10 +37,10 @@ Predicting how a few hundred thousand Gaussians move, one by one, would be hopel
 Four levers out of fifteen tried, each measured on the same 24 tasks with ≥2 repeats: cap actions to the training distribution (an optimizer will find where your model is wrong — 2 → 8 of 24); train the rollout as long as the planner plans (the single biggest jump, 33 → 44%, and the same fine-tune at the old length did nothing, which pins the cause); double the execution budget (44 → 49%; pushing is slow, corrective work); and retry, because MPPI is stochastic and failure is observable (49% → 79% best-of-3, 23/24 ever solved). The eleven that failed — shorter horizons, gentler pushes, ensembles, DAgger, more capacity, heavier losses, finer geometry, harder search — are why we believe the four.
 
 <div class="pj-grid c4">
-  <video src="{{ '/assets/video/pushing_gaussians/task117_failed_near_miss.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/pushing_gaussians/task131_failed_model_error.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/pushing_gaussians/task102_failed_systematic.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/pushing_gaussians/task103_failed_650mm.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task117_failed_near_miss.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task131_failed_model_error.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task102_failed_systematic.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/pushing_gaussians/task103_failed_650mm.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
 <p class="pj-cap">Four failures, same run. <strong>Left to right:</strong> a near miss that oscillates out (2 of 9 seeds solve it — the case for retry); model error cashing out, a wrong contact throwing the object 514 mm; a systematic error the planner commits to every seed; and the one task never solved in 216 attempts — 650 mm of travel, five times the median.</p>
 

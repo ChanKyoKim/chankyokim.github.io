@@ -30,9 +30,9 @@ permalink: /projects/polaris-real2sim2real/
 Render the scan along an orbit anchored on the policy camera, keep one first frame, and let AnyWorld roll the scene forward (161 frames). Depth Anything 3 depth over the generated frames accumulates into a 3DGS field (4.6 M Gaussians), decimated 4× and converted into PolaRiS's scene format. The evaluation observation is a three-layer composite — background splat, ray-traced robot arm and objects over it through a semantic mask — so everything that moves is pixel-identical across conditions and only the background changes. Then run the full food-bussing benchmark: five VLA policies (two π<sub>0</sub> checkpoints, π<sub>0.5</sub>, π<sub>0</sub>-FAST, a PaliGemma-based policy) × 3 backgrounds × 15 rollouts.
 
 <div class="pj-grid c3">
-  <video src="{{ '/assets/video/polaris/ours_pi05_ep11.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/polaris/ours_pi05_ep13.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/polaris/ours_pi0fast_ep9.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <video src="{{ '/assets/video/polaris/ours_pi05_ep11.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/polaris/ours_pi05_ep13.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/polaris/ours_pi0fast_ep9.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
 <p class="pj-cap">The observation stream the policy actually consumed, on our generated background — π<sub>0.5</sub> (two episodes) and π<sub>0</sub>-FAST: approach → grasp → carry → bowl → next object, 2/2 objects placed.</p>
 
@@ -65,16 +65,16 @@ Grasp attempts (two targets per episode) counted directly from trajectories with
 <h3 class="pj-h">The baseline works the same way</h3>
 
 <div class="pj-grid c3">
-  <video src="{{ '/assets/video/polaris/theirs_pi0fast_ep10.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/polaris/theirs_pi05_ep2.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-  <video src="{{ '/assets/video/polaris/theirs_rerun_ep2.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <video src="{{ '/assets/video/polaris/theirs_pi0fast_ep10.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/polaris/theirs_pi05_ep2.mp4' | relative_url }}" autoplay loop muted playsinline></video>
+  <video src="{{ '/assets/video/polaris/theirs_rerun_ep2.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
 <p class="pj-cap">Same policies, same objects, same initial conditions on the original PolaRiS scan.</p>
 
 <h3 class="pj-h">Generated input</h3>
 
 <div class="pj-grid">
-  <video src="{{ '/assets/video/polaris/anyworld_generation_161f.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <video src="{{ '/assets/video/polaris/anyworld_generation_161f.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
 <p class="pj-cap">The 161-frame AnyWorld generation (576×384) that is the only input to our field. Anchor-frame PSNR of the generated field against the scan 11.2 dB (frames 0–49); both fields leave coverage once the orbit swings 96° wide — the evaluation only ever uses the policy camera.</p>
 

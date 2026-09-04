@@ -36,9 +36,9 @@ Rendered into the generator's conditioning stream (only a 0.3B-parameter adapter
 
 <div class="pj-grid c2">
   <img src="{{ '/assets/img/projects/anyworld_3d_export_vs_native_head.jpg' | relative_url }}" alt="Exported 3D scene vs the backbone's native head">
-  <img src="{{ '/assets/img/projects/anyworld_spatial_qa.png' | relative_url }}" alt="Spatial QA accuracy from the memory vs a pixel VLM">
+  <img src="{{ '/assets/img/projects/anyworld_degradation_over_horizon.png' | relative_url }}" alt="LPIPS vs ground truth by rollout quarter">
 </div>
-<p class="pj-cap"><strong>Left</strong> held-out real view: ground truth, Lyra-2's native GS head, our first attempt (a ghost per frame), and ours writing each object once — 17.65 vs 17.04 dB, 100% vs 98.9% coverage. <strong>Right</strong> “is the near object closer than the far houses?” under a camera-pitch sweep — reading the 3D memory vs Qwen2.5-7B reading pixels.</p>
+<p class="pj-cap"><strong>Left</strong> held-out real view: ground truth, Lyra-2's native GS head, our first attempt (a ghost per frame), and ours writing each object once — 17.65 vs 17.04 dB, 100% vs 98.9% coverage. <strong>Right</strong> LPIPS against ground truth by rollout quarter on real ego trajectories — ours is lower in every quarter; what widens late is the baselines' collapse rate.</p>
 
 <h2 class="pj-h">Why it matters</h2>
 
@@ -85,16 +85,22 @@ Honest limits: the trained head does not beat the zero-shot depth splat on *stat
 - Out-of-band speed: +1.1 → +2.2 → +3.1 → +3.0 dB over stock as ego speed increases; stock collapses monotonically.
 - Long horizon (96 s from one frame): ours lower LPIPS than stock in every quarter (a uniform offset, not a widening gap); what widens is the baselines' late-frame collapse rate.
 
-<div class="pj-grid c2">
-  <img src="{{ '/assets/img/projects/anyworld_degradation_over_horizon.png' | relative_url }}" alt="LPIPS vs GT by rollout quarter">
+<h3 class="pj-h">An addressable memory</h3>
+
+<div class="pj-grid">
   <img src="{{ '/assets/img/projects/anyworld_language_field.jpg' | relative_url }}" alt="Language field on the memory">
 </div>
-<p class="pj-cap"><strong>Left</strong> LPIPS against ground truth by rollout quarter on real trajectories. <strong>Right</strong> a generated frame, the same frame after “a car” is suppressed where the text located it in the memory, and the difference.</p>
+<p class="pj-cap">Open-vocabulary features (SAM × SigLIP2) attached to the Gaussians: a generated frame, the same frame after “a car” is suppressed where the text located it in the memory, and the difference.</p>
+
+<div class="pj-grid">
+  <img src="{{ '/assets/img/projects/anyworld_spatial_qa.png' | relative_url }}" alt="Spatial QA accuracy from the memory vs a pixel VLM">
+</div>
+<p class="pj-cap">“Is the near object closer than the far houses?” under a camera-pitch sweep — answered from the 3D memory (0.92) vs Qwen2.5-7B reading pixels (0.37), per scene and per object class.</p>
 
 <h3 class="pj-h">Zero-shot on a robot workcell</h3>
 
 <div class="pj-grid">
-  <video src="{{ '/assets/video/polaris/anyworld_generation_161f.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <video src="{{ '/assets/video/polaris/anyworld_generation_161f.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
 <p class="pj-cap">161 frames generated from a single frame of a manipulation station — the only input to the 3D field used in <a href="{{ '/projects/polaris-real2sim2real/' | relative_url }}">Real grasps in a generated scene</a>.</p>
 
