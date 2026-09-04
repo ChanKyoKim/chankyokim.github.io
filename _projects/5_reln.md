@@ -15,7 +15,7 @@ Chankyo Kim, Sicheng Zhao, Minghan Zhu, Tzu-Yuan Lin, Maani Ghaffari · ICML 202
 
 <h2 class="pj-h">Why it matters</h2>
 
-Many quantities in robotics and 3D vision are naturally Lie-algebraic — twists, covariances, Gaussian shape matrices, inertial measurements — and their natural symmetry is larger than rotation. Building the symmetry in yields robustness and data efficiency that augmentation cannot buy: our $GL(3)$-equivariant self-supervised backbone for 3D Gaussian splats, **ReLN-Gaussian-MAE**, reaches 95.2% accuracy under arbitrary rotations on ShapeSplat where non-equivariant baselines fall to 18.3%.
+Many quantities in robotics and 3D vision are naturally Lie-algebraic — twists, covariances, Gaussian shape matrices, inertial measurements — and their natural symmetry is larger than rotation. Building the symmetry in yields robustness and data efficiency that augmentation cannot buy: our $GL(3)$-equivariant self-supervised backbone for 3D Gaussian splats, ReLN-Gaussian-MAE, reaches <strong>95.2% accuracy under arbitrary rotations</strong> on ShapeSplat where non-equivariant baselines fall to 18.3%.
 
 <h2 class="pj-h">Where it leads</h2>
 

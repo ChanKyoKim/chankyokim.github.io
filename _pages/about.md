@@ -26,11 +26,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I build **world models that remember, act, and hold up in the real world** — and I evaluate them where it counts: in closed loop, on the robot.
+I build world models that remember, act, and hold up in the real world — and I evaluate them in closed loop, on the robot.
 
-I am a Ph.D. candidate in Robotics at the University of Michigan, advised by [Prof. Maani Ghaffari](https://curly.engin.umich.edu/), and a Research Scientist Intern on the World Foundation Model team at Toyota Research Institute (2026). Before that: factor-graph visual SLAM at **Bear Robotics**, and co-founding [OUTTA](https://outta.ai/), an AI-education non-profit that has taught 3,000+ students.
+I am a Ph.D. candidate in Robotics at the University of Michigan, advised by [Prof. Maani Ghaffari](https://curly.engin.umich.edu/). Since May 2026 I have been a Research Scientist Intern on the World Foundation Model team at Toyota Research Institute, building foundation models for driving and robotics. Before that I worked on factor-graph visual SLAM at Bear Robotics and co-founded [OUTTA](https://outta.ai/), an AI-education non-profit that has taught 3,000+ students.
 
-My work runs along three lines. A world model needs a **memory** that outlives its context window and can be handed to other systems; a policy trained or judged **inside** that model has to survive contact with reality; and the whole stack rests on **geometry** that transforms lawfully as the world does.
+My work runs along three lines. A world model needs a **memory** that outlives its context window and can be handed to other systems. A policy needs to keep improving after imitation, **in closed loop**, against what actually happens. And the whole stack rests on **geometry** that transforms lawfully as the world does.
 
 <div class="pillars">
   <a class="pillar" href="{{ '/projects/anyworld/' | relative_url }}">
@@ -38,15 +38,17 @@ My work runs along three lines. A world model needs a **memory** that outlives i
     <div class="body">
       <div class="eyebrow">Foundation world models</div>
       <h3>Worlds that remember</h3>
-      <p>AnyWorld gives a video world model a persistent, renderable 3D Gaussian memory — 100% novel-view coverage, a 3D export that beats the backbone's own head, and rollouts that stay on the recorded drive.</p>
+      <p>AnyWorld gives a video world model a persistent, renderable 3D Gaussian memory, so it keeps seeing what it has already seen — and can export the scene for policies to be evaluated in.</p>
+      <p class="result">100% novel-view coverage at 45 m · rollouts track the recorded drive on 38/39 held-out scenes · policy rankings preserved inside generated scenes (r = 0.87)</p>
     </div>
   </a>
-  <a class="pillar" href="{{ '/projects/polaris-real2sim2real/' | relative_url }}">
-    <img src="{{ '/assets/img/projects/polaris_thumb.jpg' | relative_url }}" alt="A robot policy grasping inside a generated scene">
+  <a class="pillar" href="{{ '/projects/rl-driving/' | relative_url }}">
+    <img src="{{ '/assets/img/projects/rl_driving_thumb.jpg' | relative_url }}" alt="A fine-tuned driving policy taking an unseen curve at lane center">
     <div class="body">
       <div class="eyebrow">Post-training with RL</div>
-      <h3>Trained inside the model</h3>
-      <p>Driving policies RL-fine-tuned inside the world model; VLA policies benchmarked inside scenes it generated, with the ranking carried back to a real robot — real2sim2real.</p>
+      <h3>Trained in the loop</h3>
+      <p>A diffusion-policy driving model fine-tuned with closed-loop RL in simulation, with one road-relative reward, so it takes curves it has never seen at lane center more often than the model it started from.</p>
+      <p class="result">Unseen-curve completion 1/6 → 3/6 · lane-center error under 0.6 m on completed runs · every limit measured, not assumed</p>
     </div>
   </a>
   <a class="pillar" href="{{ '/projects/pushing-gaussians/' | relative_url }}">
@@ -54,11 +56,12 @@ My work runs along three lines. A world model needs a **memory** that outlives i
     <div class="body">
       <div class="eyebrow">Geometry for manipulation</div>
       <h3>Geometry that moves</h3>
-      <p>A Gaussian world model whose dynamics are rigid-body pose updates on the splats, planned through with MPPI — and the equivariant representations (E3DGS, ReLN) underneath it.</p>
+      <p>A Gaussian world model whose dynamics are rigid-body pose updates on the splats, planned through in closed loop with MPPI — built on equivariant representations (E3DGS, ReLN).</p>
+      <p class="result">Push-to-goal success 0/24 → 49% per attempt, 79% within three tries · offline model error did not predict closed-loop success</p>
     </div>
   </a>
 </div>
 
-Underneath all three is a conviction about representations: a good one is **aligned** with what it should mean, **controllable** in parts you can intervene on, and **consistent** — it transforms lawfully as the world does. My equivariance work builds the third property in by construction: [Reductive Lie Neurons](https://arxiv.org/abs/2510.22984) (ICML 2026) for general linear symmetries on Lie algebras, and [E3DGS]({{ '/projects/e3dgs/' | relative_url }}), which proves that spherical-harmonic **color is algebraically a geometric tensor**.
+Underneath all three is a view about representations: a good one is aligned with what it should mean, controllable in the parts you want to intervene on, and consistent — it transforms lawfully as the world does. My equivariance work builds the third property in by construction: [Reductive Lie Neurons](https://arxiv.org/abs/2510.22984) (ICML 2026) for general linear symmetries on Lie algebras, and [E3DGS]({{ '/projects/e3dgs/' | relative_url }}), which shows that spherical-harmonic color is algebraically a geometric tensor.
 
 If you work on world models, 3D/4D scene representations, or evaluating embodied agents, write to **chankyo@umich.edu**.
