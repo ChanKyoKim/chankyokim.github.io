@@ -3,6 +3,7 @@ layout: page
 title: AnyWorld
 description: A persistent, renderable 3D Gaussian memory for video world models — every frame lifted feed-forward into Gaussians the generator conditions on and can export.
 hero_video: assets/video/anyworld/forward_3up_scene012.mp4
+hero_layout: wide
 result: 100% novel-view coverage at 45 m · rollouts track the recorded drive on 38/39 held-out scenes · exported 3D beats the backbone's own head.
 img: assets/img/projects/anyworld_thumb.jpg
 importance: 1

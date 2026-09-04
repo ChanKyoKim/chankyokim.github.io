@@ -242,6 +242,17 @@ details.pj-more {
     color: var(--global-theme-color);
   }
 }
+// wide variant: media stacked on top at its natural aspect (for side-by-side comparison clips)
+.pj-feature.wide {
+  grid-template-columns: 1fr;
+  .media video, .media img {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+  .body { padding-top: 0.9rem; }
+  .more { margin-top: 0.2rem; }
+}
 @media (max-width: 768px) {
   .pj-feature { grid-template-columns: 1fr; }
 }

@@ -2,7 +2,7 @@
 layout: page
 title: Real grasps in a generated scene
 description: VLA policies evaluated inside a scene the world model generated from a single frame — one file changed, everything else byte-identical — and the ranking carried back to a real robot.
-hero_video: assets/video/polaris/scan_vs_generated_same_orbit.mp4
+hero_video: assets/video/polaris/ours_pi05_ep11.mp4
 result: Policy ranking preserved (r = 0.87) across five VLA policies · real → sim → real closed on TRI's DROID station.
 img: assets/img/projects/polaris_thumb.jpg
 importance: 2

@@ -30,7 +30,7 @@ pillars:
     </div>
     {% for project in categorized %}
       {% if forloop.first %}
-        <a class="pj-feature" href="{{ project.url | relative_url }}">
+        <a class="pj-feature{% if project.hero_layout == 'wide' %} wide{% endif %}" href="{{ project.url | relative_url }}">
           <div class="media">
             {% if project.hero_video %}
               <video src="{{ project.hero_video | relative_url }}" autoplay loop muted playsinline poster="{{ project.img | relative_url }}"></video>
