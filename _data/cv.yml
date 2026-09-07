@@ -42,7 +42,7 @@
       year: 2023.09 – present
       description:
         - Gaussian world models for manipulation (with MBZUAI) — Pushing Gaussians benchmark, 0/24 → 49% per attempt on a 24-task push-to-goal benchmark; offline metrics anti-correlate with closed-loop success.
-        - E3DGS (ICLR 2027 submission), Reductive Lie Neurons (ICML 2026), ReLN-Gaussian-MAE, GINIO equivariant inertial odometry (patent filed).
+        - E3DGS (ICLR 2027 submission), Reductive Lie Neurons (ICML 2026), ReLN-Gaussian-MAE, GINIO — SO(3)-equivariant interface for neural inertial odometry (CoRL 2026; patent filed).
     - title: Research Assistant, ROAHM Lab
       institution: University of Michigan, Ann Arbor, MI, USA
       year: 2022.10 – 2023.08

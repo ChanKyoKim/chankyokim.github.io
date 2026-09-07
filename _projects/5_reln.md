@@ -4,7 +4,7 @@ title: Reductive Lie Neurons
 description: Equivariant neural networks for general linear symmetries on Lie algebras — twists, covariances and Gaussian shape matrices transform lawfully with the frame they are expressed in.
 result: ReLN-Gaussian-MAE reaches 95.2% under arbitrary rotations on ShapeSplat where non-equivariant baselines fall to 18.3%.
 status: ICML 2026
-importance: 5
+importance: 6
 category: geometry that moves
 permalink: /projects/reln/
 ---
@@ -21,6 +21,6 @@ Many quantities in robotics and 3D vision are naturally Lie-algebraic — twists
 
 <h2 class="pj-h">Where it leads</h2>
 
-ReLN is the algebraic backbone behind [E3DGS](/projects/e3dgs/) (color as a geometric tensor in $\mathfrak{gl}(3)$) and behind equivariant neural inertial odometry (GINIO), deployed in real time on legged robots.
+ReLN is the algebraic backbone behind [E3DGS](/projects/e3dgs/) (color as a geometric tensor in $\mathfrak{gl}(3)$) and behind [GINIO](/projects/ginio/) (CoRL 2026), an SO(3)-equivariant interface for neural inertial odometry that holds up when the sensor is physically remounted on a real robot.
 
 <!-- TODO(chankyo): add a teaser figure at assets/img/projects/reln_teaser.png and set `img:` in the front matter -->

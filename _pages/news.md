@@ -1,6 +1,6 @@
 ---
 layout: page
-title: news
+title: research log
 permalink: /news/
 ---
 

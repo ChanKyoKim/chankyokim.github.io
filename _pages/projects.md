@@ -13,8 +13,8 @@ pillars:
     label: Post-training with RL
     blurb: Imitation gives a policy the average of what it saw. Reinforcement learning in closed loop lets it improve on its own rollouts — and forces an honest accounting of how often it succeeds.
   - category: geometry that moves
-    label: Geometry for manipulation
-    blurb: Dynamics as rigid-body motion on the splats, planned through in closed loop, on representations that transform lawfully as the world does.
+    label: Geometry for robots
+    blurb: Representations and learned measurements that transform lawfully as the world does — and, on top of them, dynamics as rigid-body motion on the splats, planned through in closed loop.
 ---
 
 <!-- pages/projects.md -->
