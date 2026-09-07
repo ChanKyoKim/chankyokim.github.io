@@ -8,9 +8,9 @@ middle_name: Peter
 last_name: Kim
 email: chankyo@umich.edu
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email is the best way to reach me.
 description: > # SEO 및 미리보기를 위한 사이트 설명
-  Chankyo Kim — world models that remember, predict, and plan in 3D. Ph.D. candidate in Robotics at the University of Michigan; Research Scientist Intern at Toyota Research Institute.
+  Chankyo Kim — world models with explicit 3D state, tested in closed loop on real robots. Ph.D. candidate in Robotics at the University of Michigan; Research Scientist Intern at Toyota Research Institute.
 # footer_text: >
 #   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 #   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -33,7 +33,7 @@ back_to_top: true # set to false to disable the back to top button
 repo_theme_light: default # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_theme_dark: dark # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_trophies:
-  enabled: true
+  enabled: false
   theme_light: flat # https://github.com/ryo-ma/github-profile-trophy
   theme_dark: gitdimmed # https://github.com/ryo-ma/github-profile-trophy
 
@@ -71,7 +71,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # -----------------------------------------------------------------------------
 # Social integration
 # -----------------------------------------------------------------------------
-github_username: chankyo123 # 님의 GitHub ID (chankyokim)
+github_username: chankyokim # TODO(chankyo): 실제 GitHub 아이디 확인 (사이트 저장소는 chankyokim)
 linkedin_username: chankyo-kim-603592238 # 님의 CV에서 찾았습니다 (URL 끝부분)
 scholar_userid: nojc8DoAAAAJ
 # -----------------------------------------------------------------------------
@@ -93,8 +93,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: notes
+blog_description: ""
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
