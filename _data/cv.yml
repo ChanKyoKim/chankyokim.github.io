@@ -6,7 +6,7 @@
     - name: Position
       value: Ph.D. Candidate in Robotics, University of Michigan · Research Scientist Intern, World Foundation Model Team, Toyota Research Institute
     - name: Research
-      value: World models that remember, predict, and plan in 3D — persistent Gaussian memory, closed-loop evaluation, equivariant geometric learning
+      value: World models with explicit 3D state, tested in closed loop — persistent Gaussian memory, closed-loop evaluation and RL post-training, equivariant geometric learning
     - name: Languages
       value: English, Korean
 
@@ -33,10 +33,10 @@
       institution: Toyota Research Institute, Los Altos, CA, USA
       year: 2026.05 – 2026.11
       description:
-        - AnyWorld — a video world model with a persistent, renderable 3D Gaussian memory (lead author; CVPR 2027 submission). 100% novel-view coverage vs up to 23% unobserved for single-frame reconstruction; exported 3D beats the backbone's own 3DGS head (17.65 vs 17.04 dB, 33/40 views).
-        - As conditioning, the memory keeps the generator on the recorded drive (38/39 probes lower LPIPS vs base; stops respected 8/9 vs 3/9), 2.2× less flicker, trajectory-speed adherence 1.05–1.1× vs 3–4× for the base model.
+        - AnyWorld — a video world model with a persistent, renderable 3D Gaussian memory (lead author; CVPR 2027 submission). 100% novel-view coverage vs up to 23% unobserved for single-frame reconstruction; exported 3D scene beats Lyra-2's 3DGS output on the same views (17.65 vs 17.04 dB, 33/40 views).
+        - As conditioning, the memory keeps the generator on the recorded drive (38/39 held-out drives tracked more closely than Lyra-2; stops respected 8/9 vs 3/9), 2.2× less flicker, trajectory-speed adherence 1.05–1.1× vs 3–4× for Lyra-2.
         - Real2Sim2Real with PolaRiS — VLA policies evaluated inside a generated scene; policy ranking matches the real scan (r = 0.87) and holds on the physical DROID station.
-        - Closed-loop RL fine-tuning of a diffusion action head for end-to-end driving inside an action-conditioned latent world model; adopted by the end-to-end driving team, passed TMC technical review (patent filed).
+        - Closed-loop RL post-training of a diffusion-policy driving model in simulation (unseen-curve completion 1/6 → 3/6, seeded evaluation); closed-loop training/evaluation framework adopted by TRI's end-to-end driving team (patent filed).
     - title: Graduate Student Researcher — Spatial AI & World Models
       institution: University of Michigan (Prof. Maani Ghaffari), Ann Arbor, MI, USA
       year: 2023.09 – present
@@ -90,7 +90,6 @@
     - Reviewer — ICML, CoRL (2026); IEEE TRO, ICRA, IROS (2024 – 2025)
     - Invited seminar — "Why Equivariance? Foundation Models in Robotics", SNU (Dec. 2025)
     - Talk — "Toward Equivariance on Uncertainty and Reductive Lie Neuron Design", CVPR 2025 (June 2025)
-    - Selected participant — Machine Learning Summer School (MLSS), Columbia University (2026)
     - Research mentorship — three MS students (world modeling; neural VIO/SLAM; inertial odometry)
 
 - title: Teaching Experience
@@ -114,10 +113,10 @@
         - 3D Gaussian Splatting (gsplat), feed-forward reconstruction, metric depth (Depth Anything 3), SfM/SLAM, factor graphs, IMU–visual fusion, equivariant networks on Lie groups
     - title: World models & generation
       items:
-        - Video-diffusion world models (Lyra-2, Wan, Cosmos), action-conditioned latent dynamics, world-model-in-the-loop RL, MPPI/CEM planning, VLA policies (π0 family)
+        - Video-diffusion world models (Wan, Cosmos), action-conditioned latent dynamics, world-model-in-the-loop RL, MPPI/CEM planning, VLA policies (π0 family)
     - title: Evaluation & simulation
       items:
         - Closed-loop policy evaluation (PolaRiS real2sim2real), world-model benchmarks, Isaac Sim, Habitat
     - title: Systems
       items:
-        - PyTorch, JAX, FSDP multi-GPU training (up to 16 GPUs), HuggingFace releases; Python, C++
+        - PyTorch, JAX, FSDP multi-GPU training (up to 16 GPUs), HuggingFace model packaging; Python, C++
