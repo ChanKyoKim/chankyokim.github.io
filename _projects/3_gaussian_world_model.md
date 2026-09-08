@@ -4,7 +4,7 @@ title: Gaussian World Model
 description: A learned dynamics model over a 3D Gaussian scene — rigid-body pose updates on the splats — with a sampling planner in closed loop on top; on the Pushing Gaussians benchmark, from 0/24 to 69% per attempt.
 status: UMich × MBZUAI · 2026 · in progress
 hero_video: assets/video/pushing_gaussians/task124_solved_long_haul.mp4
-result: 0/24 → 69% per attempt within 30 mm · 23/24 tasks solved · offline error did not predict closed-loop success.
+result: 0/24 → 69% per attempt within 30 mm · four planner-side levers, then more training · offline error did not predict closed-loop success.
 img: assets/img/projects/pushing_gaussians_thumb.jpg
 importance: 3
 category: geometry that moves
@@ -24,9 +24,9 @@ permalink: /projects/gaussian-world-model/
 <p class="pj-cap">Four solved tasks — same model, same planner, same seed. Green ghost is the goal pose, orange arrow the current error, red vector the action being executed. <strong>Left to right:</strong> one committed push; a 217 mm haul as a chain of short pushes; a rolling object that keeps going after contact; repeated corrections re-approaching from a new side.</p>
 
 <div class="pj-stats">
-  <div class="pj-stat"><div class="n">0 → 69%</div><div class="l">per-attempt success on a 24-task push-to-goal benchmark, from a first model that solved nothing. The levers below carried it to 49% (106/216 over 9 planner seeds); the current model stands at 69%</div></div>
+  <div class="pj-stat"><div class="n">0 → 69%</div><div class="l">per-attempt success on a 24-task push-to-goal benchmark, from a first model that solved nothing: four planner-side levers took it to 49% (106/216 over 9 planner seeds), and training the same model longer took it to 69%</div></div>
   <div class="pj-stat"><div class="n">33 mm</div><div class="l">model error forty steps into a rollout — the size of the 30 mm goal tolerance. Every lever that worked kept the planner inside the model's trust region</div></div>
-  <div class="pj-stat"><div class="n">17%</div><div class="l">success of the checkpoint with the lowest rollout error, a third of the champion's. Offline metrics did not predict closed-loop performance</div></div>
+  <div class="pj-stat"><div class="n">17%</div><div class="l">success of the checkpoint with the lowest rollout error, a third of the champion's in the same run. Offline metrics did not predict closed-loop performance</div></div>
 </div>
 
 <h2 class="pj-h">Why this is possible at all</h2>
@@ -35,7 +35,7 @@ Predicting how a few hundred thousand Gaussians move one by one would be hopeles
 
 <h2 class="pj-h">What moved the number</h2>
 
-Four levers out of fifteen tried took the model to 49%, each measured on the same 24 tasks with at least two repeats. Cap actions to the training distribution, because an optimizer will find where the model is wrong (2 → 8 of 24). Train the rollout as long as the planner plans — the single biggest jump, 33% → 44%, while the same fine-tune at the old length did nothing, which pins the cause. Double the execution budget, since pushing is slow, corrective work (44% → 49%). And retry, because MPPI is stochastic and failure is observable (49% → 79% best of three; 23/24 tasks ever solved). The eleven that failed — shorter horizons, gentler pushes, ensembles, DAgger, more capacity, heavier losses, finer geometry, harder search — are why we believe the four.
+Four levers out of fifteen tried took the model from 2/24 to 49%, each measured on the same 24 tasks with at least two repeats. Cap actions to the training distribution, because an optimizer will find where the model is wrong (2 → 8 of 24). Train the rollout as long as the planner plans — the single biggest jump, 33% → 44%, while the same fine-tune at the old length did nothing, which pins the cause. Double the execution budget, since pushing is slow, corrective work (44% → 49%). And retry, because MPPI is stochastic and failure is observable (at 49%, 79% within three tries; 23/24 tasks ever solved). The eleven that failed — shorter horizons, gentler pushes, ensembles, DAgger, more capacity, heavier losses, finer geometry, harder search — are why we believe the four. With the planner side settled, the remaining error was the model's: training the same model longer took it from 49% to 69%.
 
 <div class="pj-grid c4">
   <video src="{{ '/assets/video/pushing_gaussians/task117_failed_near_miss.mp4' | relative_url }}" autoplay loop muted playsinline></video>
@@ -43,13 +43,13 @@ Four levers out of fifteen tried took the model to 49%, each measured on the sam
   <video src="{{ '/assets/video/pushing_gaussians/task102_failed_systematic.mp4' | relative_url }}" autoplay loop muted playsinline></video>
   <video src="{{ '/assets/video/pushing_gaussians/task103_failed_650mm.mp4' | relative_url }}" autoplay loop muted playsinline></video>
 </div>
-<p class="pj-cap">Four failures, same run. <strong>Left to right:</strong> a near miss that oscillates out (2 of 9 seeds solve it — the case for retry); model error cashing out as a wrong contact that throws the object 514 mm; a systematic error the planner commits to on every seed; and the one task never solved in 216 attempts — 650 mm of travel, five times the median.</p>
+<p class="pj-cap">Four failures from the 49% run. <strong>Left to right:</strong> a near miss that oscillates out (2 of 9 seeds solve it — the case for retry); model error cashing out as a wrong contact that throws the object 514 mm; a systematic error the planner commits to on every seed; and the one task never solved in 216 attempts — 650 mm of travel, five times the median.</p>
 
 <h2 class="pj-h">The finding that transfers</h2>
 
 <div class="pj-take">Selecting a checkpoint by one-step error made planning worse (23/48 → 13/48 while the metric improved). Selecting by 40-step rollout error was no better: the best model by that metric planned at 17%. <strong>A world model built for planning has to be selected by the planner, in closed loop</strong> — and part of any champion's margin is luck, so say so.</div>
 
-Every number is in simulation with the reconstruction as the observation. Capability is nearly complete — 23/24 tasks solved at least once, the same envelope as a privileged oracle. Reliability is not: what separates 69% from that envelope is a bad approach route on a given attempt, not knowledge the model lacks.
+Every number is in simulation with the reconstruction as the observation. Capability was nearly complete already at 49% — 23/24 tasks solved at least once, the same envelope as a privileged oracle. Reliability is what more training bought, and what still separates 69% from that envelope is a bad approach route on a given attempt, not knowledge the model lacks.
 
 <details class="pj-more" markdown="1">
 <summary>Details — levers, the eleven that failed, results table, setup</summary>
@@ -66,6 +66,7 @@ Rolled out through the model, error in the target's predicted position is 5.9 mm
 | L2 | Train the rollout as long as the planner plans | Trained on 20-step rollouts, asked to imagine 30. Fine-tuning at rollout length 38 was the biggest jump; the same fine-tune at length 20 did nothing. | 33% → 44% (6 repeats) |
 | L3 | Double the execution budget (400 → 800 steps) | Most failures at 400 were unfinished, not wrong; 1200 gave nothing back. | 44% → 49% (9 repeats, 216 attempts) |
 | L4 | Retry | Stochastic planner, observable failure. A system-level lever, reported separately. | 49% → ~79% best of 3 → 23/24 in 9 tries |
+| L5 | Train the same model longer | Once the planner-side levers were exhausted, the remaining error was the model's. | 49% → 69% per attempt |
 
 <h3 class="pj-h">Eleven that did not work</h3>
 
@@ -73,12 +74,14 @@ Shorter horizons (strategic signal is worth more than per-step accuracy); gentle
 
 <h3 class="pj-h">Results</h3>
 
+The fully instrumented run below is the 49% model; the current model, trained longer, reaches 69% per attempt at the same 30 mm tolerance.
+
 | per attempt | best of 3 tries | tasks ever solved | starting point |
 |---|---|---|---|
 | **49.1%** (106 of 216) | **~79%** (79 / 92 / 67% over three disjoint seed groups) | **23 / 24** — only the 650 mm task never fell | **0 / 24** (first learned model, uncapped actions) |
 
 <h3 class="pj-h">Setup</h3>
 
-24-task push-to-goal benchmark · planner MPPI×CEM, horizon 60, 192 samples, 4 iterations, replan every 5 · action cap 0.34 lin / 0.20 ang · 800-step budget · 30 mm tolerance · required travel 62–650 mm. The per-attempt figure is 106/216 over 9 independent planner seeds; best-of-3 uses three disjoint groups of three seeds; all comparisons have at least two repeats.
+24-task push-to-goal benchmark · planner MPPI×CEM, horizon 60, 192 samples, 4 iterations, replan every 5 · action cap 0.34 lin / 0.20 ang · 800-step budget · 30 mm tolerance · required travel 62–650 mm. In the instrumented run the per-attempt figure is 106/216 over 9 independent planner seeds; best-of-3 uses three disjoint groups of three seeds; all comparisons have at least two repeats.
 
 </details>
