@@ -23,6 +23,7 @@ Two things follow. The architecture gets simpler and cheaper: one matrix-valued 
 
 - The isomorphism: the degree-≤2 SH coefficient space is isomorphic to a rank-2 tensor space, and the Wigner-$D$ action becomes conjugation by the rotation matrix.
 - The Unified Matrix Embedding: all Gaussian properties map into a common $\mathfrak{gl}(3)$ space, so a single equivariant backbone processes them together — the same Lie-algebraic machinery as [Reductive Lie Neurons](https://arxiv.org/abs/2510.22984) (ICML 2026).
+- Self-supervised pre-training on 3D data: masked prediction over the splats in the unified embedding, with no labels — the representation is learned from the Gaussians themselves and inherits their transformation law.
 - Robustness and data efficiency on object-level vision and on action-conditioned scene modelling under camera transformations, against equivariant and non-equivariant baselines.
 
 <h2 class="pj-h">Where it leads</h2>

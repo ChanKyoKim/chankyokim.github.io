@@ -31,6 +31,8 @@ permalink: /projects/anyworld/
 
 AnyWorld has two parts: a feed-forward Gaussian memory and a video generator that conditions on it. The memory lifts each frame into metric 3D Gaussians — a frozen depth foundation model supplies dense metric depth, a learned per-pixel head predicts the Gaussian parameters — and accumulates them in a world frame, writing each object once. The generator is trained to condition on renders of that memory along the camera path, so what the model has already seen constrains what it produces next. Both parts are trained on driving video at scale (up to 16 GPUs). Because the memory renders from any pose and exports as a standard 3DGS scene, it is the model's 3D output as well as its state.
 
+Training a world model on driving video is a data problem before it is a modelling problem. AnyWorld learns from more than 1,000 hours of Toyota driving video, and no one labelled it: the cameras' calibration and motion come from the vehicle itself, dense metric depth from a feed-forward geometry model run over every frame, and the generator's only training signal is the video it has to predict. That geometry was computed once, at scale, and is the ground the Gaussian memory is built on.
+
 <h2 class="pj-h">What it changes</h2>
 
 Against Lyra-2 on the same held-out Waymo drives, AnyWorld flickers 2.2× less, degrades gracefully when the ego drives faster than the training band, and keeps scene speed honest: Lyra-2 churns 3–4× faster than the footage, AnyWorld tracks it at 1.05–1.1× and reproduces a real stop. The same memory is addressable. Open-vocabulary features attached to the Gaussians let text locate and edit objects, and spatial questions answered from the memory are right 92% of the time against 37% for a pixel VLM.
