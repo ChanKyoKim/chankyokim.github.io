@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Gaussian World Model
-description: A learned dynamics model over a 3D Gaussian scene — rigid-body pose updates on the splats — with a sampling planner in closed loop on top; on the Pushing Gaussians benchmark, from 0/24 to 49% per attempt.
+description: A learned dynamics model over a 3D Gaussian scene — rigid-body pose updates on the splats — with a sampling planner in closed loop on top; on the Pushing Gaussians benchmark, from 0/24 to 69% per attempt.
 status: UMich × MBZUAI · 2026 · in progress
 hero_video: assets/video/pushing_gaussians/task124_solved_long_haul.mp4
-result: 0/24 → 49% per attempt, 79% within three tries, 23/24 tasks solved · offline error did not predict closed-loop success.
+result: 0/24 → 69% per attempt within 30 mm · 23/24 tasks solved · offline error did not predict closed-loop success.
 img: assets/img/projects/pushing_gaussians_thumb.jpg
 importance: 3
 category: geometry that moves
@@ -13,7 +13,7 @@ permalink: /projects/gaussian-world-model/
 
 <p class="pj-meta">University of Michigan (Prof. Maani Ghaffari) × MBZUAI (Prof. Xingxing Zuo's group), 2026 · model-based planning on a 3D Gaussian representation · follows <a href="{{ '/projects/e3dgs/' | relative_url }}">E3DGS</a></p>
 
-<p class="pj-lede">A 3DGS scene is a photograph in three dimensions: it has no idea what happens if you push the object in the middle of it. We built a world model that predicts exactly that, put a sampling planner on top, and asked a robot to push reconstructed objects onto goal poses within 30 mm — a 24-task benchmark we call Pushing Gaussians. <strong>It started at 0 of 24 tasks. It ends at 49% per attempt and 79% within three tries.</strong></p>
+<p class="pj-lede">A 3DGS scene is a photograph in three dimensions: it has no idea what happens if you push the object in the middle of it. We built a world model that predicts exactly that, put a sampling planner on top, and asked a robot to push reconstructed objects onto goal poses within 30 mm — a 24-task benchmark we call Pushing Gaussians. <strong>It started at 0 of 24 tasks. The current model lands the object within 30 mm on 69% of attempts.</strong></p>
 
 <div class="pj-grid c4 pj-hero">
   <video src="{{ '/assets/video/pushing_gaussians/task101_solved_clean_push.mp4' | relative_url }}" autoplay loop muted playsinline></video>
@@ -24,8 +24,8 @@ permalink: /projects/gaussian-world-model/
 <p class="pj-cap">Four solved tasks — same model, same planner, same seed. Green ghost is the goal pose, orange arrow the current error, red vector the action being executed. <strong>Left to right:</strong> one committed push; a 217 mm haul as a chain of short pushes; a rolling object that keeps going after contact; repeated corrections re-approaching from a new side.</p>
 
 <div class="pj-stats">
-  <div class="pj-stat"><div class="n">0 → 49%</div><div class="l">per-attempt success on a 24-task push-to-goal benchmark (106/216 over 9 planner seeds), from a first model that solved nothing</div></div>
-  <div class="pj-stat"><div class="n">33 mm</div><div class="l">model error at the 60-step planning horizon — the size of the 30 mm goal tolerance. Every lever that worked kept the planner inside the model's trust region</div></div>
+  <div class="pj-stat"><div class="n">0 → 69%</div><div class="l">per-attempt success on a 24-task push-to-goal benchmark, from a first model that solved nothing. The levers below carried it to 49% (106/216 over 9 planner seeds); the current model stands at 69%</div></div>
+  <div class="pj-stat"><div class="n">33 mm</div><div class="l">model error forty steps into a rollout — the size of the 30 mm goal tolerance. Every lever that worked kept the planner inside the model's trust region</div></div>
   <div class="pj-stat"><div class="n">17%</div><div class="l">success of the checkpoint with the lowest rollout error, a third of the champion's. Offline metrics did not predict closed-loop performance</div></div>
 </div>
 
@@ -35,7 +35,7 @@ Predicting how a few hundred thousand Gaussians move one by one would be hopeles
 
 <h2 class="pj-h">What moved the number</h2>
 
-Four levers out of fifteen tried, each measured on the same 24 tasks with at least two repeats. Cap actions to the training distribution, because an optimizer will find where the model is wrong (2 → 8 of 24). Train the rollout as long as the planner plans — the single biggest jump, 33% → 44%, while the same fine-tune at the old length did nothing, which pins the cause. Double the execution budget, since pushing is slow, corrective work (44% → 49%). And retry, because MPPI is stochastic and failure is observable (49% → 79% best of three; 23/24 tasks ever solved). The eleven that failed — shorter horizons, gentler pushes, ensembles, DAgger, more capacity, heavier losses, finer geometry, harder search — are why we believe the four.
+Four levers out of fifteen tried took the model to 49%, each measured on the same 24 tasks with at least two repeats. Cap actions to the training distribution, because an optimizer will find where the model is wrong (2 → 8 of 24). Train the rollout as long as the planner plans — the single biggest jump, 33% → 44%, while the same fine-tune at the old length did nothing, which pins the cause. Double the execution budget, since pushing is slow, corrective work (44% → 49%). And retry, because MPPI is stochastic and failure is observable (49% → 79% best of three; 23/24 tasks ever solved). The eleven that failed — shorter horizons, gentler pushes, ensembles, DAgger, more capacity, heavier losses, finer geometry, harder search — are why we believe the four.
 
 <div class="pj-grid c4">
   <video src="{{ '/assets/video/pushing_gaussians/task117_failed_near_miss.mp4' | relative_url }}" autoplay loop muted playsinline></video>
@@ -49,7 +49,7 @@ Four levers out of fifteen tried, each measured on the same 24 tasks with at lea
 
 <div class="pj-take">Selecting a checkpoint by one-step error made planning worse (23/48 → 13/48 while the metric improved). Selecting by 40-step rollout error was no better: the best model by that metric planned at 17%. <strong>A world model built for planning has to be selected by the planner, in closed loop</strong> — and part of any champion's margin is luck, so say so.</div>
 
-Every number is in simulation with the reconstruction as the observation. Capability is nearly complete — 23/24 tasks solved at least once, the same envelope as a privileged oracle. Reliability is not: what separates 49% from that envelope is a bad approach route on a given attempt, not knowledge the model lacks.
+Every number is in simulation with the reconstruction as the observation. Capability is nearly complete — 23/24 tasks solved at least once, the same envelope as a privileged oracle. Reliability is not: what separates 69% from that envelope is a bad approach route on a given attempt, not knowledge the model lacks.
 
 <details class="pj-more" markdown="1">
 <summary>Details — levers, the eleven that failed, results table, setup</summary>

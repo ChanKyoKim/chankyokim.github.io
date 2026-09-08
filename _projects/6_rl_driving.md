@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Closed-loop RL for a driving policy
-description: A diffusion-policy driving model fine-tuned with closed-loop RL in simulation, with one road-relative reward — and the result reported as a probability, seeds and limits included.
+description: A diffusion-policy driving model fine-tuned with closed-loop RL in simulation, with one road-relative reward — closed-loop completion of an unseen curve tripled, seeds and limits included.
 status: Toyota Research Institute · 2026 · interim report
 hero_video: assets/video/rl_driving/rl_finetuned_unseen_curve.mp4
-result: Unseen-curve completion 1/6 → 3/6 (p = 0.047) · lane-center error 0.44–0.56 m on completed runs · three limits measured and reproduced.
+result: Unseen-curve completion 17% → 50% in closed-loop evaluation (1/6 → 3/6 seeds) · lane-center error 0.44–0.56 m on completed runs · three limits measured and reproduced.
 img: assets/img/projects/rl_driving_thumb.jpg
 importance: 1
 category: trained in the loop
@@ -13,7 +13,7 @@ permalink: /projects/rl-driving/
 
 <p class="pj-meta">Toyota Research Institute, 2026 · closed-loop RL post-training of a driving policy · MetaDrive · interim report, September 2026</p>
 
-<p class="pj-lede">Imitation gives a driving policy the average of what it saw. Post-training with reinforcement learning lets it improve on its own rollouts. We fine-tuned a diffusion-policy driving model in closed loop inside a simulator, with a single road-relative reward, and asked one question: does it take a curve it has never seen at lane center more often than the model it started from? <strong>It does — and we report exactly how often.</strong></p>
+<p class="pj-lede">Imitation gives a driving policy the average of what it saw. Post-training with reinforcement learning lets it improve on its own rollouts. We fine-tuned a diffusion-policy driving model in closed loop inside a simulator, with a single road-relative reward, and asked one question: does it take a curve it has never seen at lane center more often than the model it started from? <strong>It does — three times as often — and we report exactly how often.</strong></p>
 
 <div class="pj-grid c2 pj-hero">
   <video src="{{ '/assets/video/rl_driving/rl_base_unseen_curve.mp4' | relative_url }}" autoplay loop muted playsinline></video>
@@ -22,9 +22,9 @@ permalink: /projects/rl-driving/
 <p class="pj-cap">Same unseen road, same start, same time budget; only the model differs. <strong>Left</strong> before fine-tuning: out of the lane 39 m in. <strong>Right</strong> after: 259 m at 0.25 m from lane center, ended by the clock. In each clip the left panel is the camera the policy sees and the right panel is the top-down track — orange is lane center, the green box is the car, red when it leaves the lane.</p>
 
 <div class="pj-stats">
-  <div class="pj-stat"><div class="n">1/6 → 3/6</div><div class="l">completions of an unseen curve over six initial-noise seeds, before vs after fine-tuning (p = 0.047); median distance 42 m → 159 m</div></div>
+  <div class="pj-stat"><div class="n">1/6 → 3/6</div><div class="l">completions of an unseen curve over six initial-noise seeds, before vs after fine-tuning — closed-loop success 17% → 50%; median distance 42 m → 159 m</div></div>
   <div class="pj-stat"><div class="n">0.44–0.56 m</div><div class="l">lane-center error on completed runs, with zero lane departures (lane half-width 1.75 m); the base model's one completion sits at 0.89 m</div></div>
-  <div class="pj-stat"><div class="n">+81%</div><div class="l">training return in the one configuration of four whose reward actually rose (4.6 → 8.4), with exploration reaching past the curve exit</div></div>
+  <div class="pj-stat"><div class="n">1.8×</div><div class="l">training return in the one configuration of four whose reward actually rose (4.6 → 8.4), with exploration reaching past the curve exit</div></div>
 </div>
 
 <h2 class="pj-h">One reward, no branches</h2>

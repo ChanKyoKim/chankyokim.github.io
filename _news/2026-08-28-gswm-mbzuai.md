@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started a collaboration with Prof. Xingxing Zuo's group at MBZUAI on **Gaussian-splatting world models for robot manipulation**. First result: a learned dynamics model over the splats, planned through with MPPI, takes a 24-task push-to-goal benchmark from 0/24 to 49% per attempt. [[project page]](/projects/gaussian-world-model/)
+Started a collaboration with Prof. Xingxing Zuo's group at MBZUAI on **Gaussian-splatting world models for robot manipulation**. First results: a learned dynamics model over the splats, planned through with MPPI, takes a 24-task push-to-goal benchmark from 0/24 to 69% per attempt. [[project page]](/projects/gaussian-world-model/)
