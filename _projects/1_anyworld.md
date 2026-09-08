@@ -35,7 +35,7 @@ Training a world model on driving video is a data problem before it is a modelli
 
 <h2 class="pj-h">What it changes</h2>
 
-Against Lyra-2 on the same held-out Waymo drives, AnyWorld flickers 2.2× less, degrades gracefully when the ego drives faster than the training band, and keeps scene speed honest: Lyra-2 churns 3–4× faster than the footage, AnyWorld tracks it at 1.05–1.1× and reproduces a real stop. The same memory is addressable. Open-vocabulary features attached to the Gaussians let text locate and edit objects, and spatial questions answered from the memory are right 92% of the time against 37% for a pixel VLM.
+Against Lyra-2 on the same held-out Waymo drives, AnyWorld flickers 2.2× less, degrades gracefully when the ego drives faster than the training band, and keeps scene speed honest: Lyra-2 churns 3–4× faster than the footage, AnyWorld tracks it at 1.04–1.09× and reproduces a real stop. The same memory is addressable. Open-vocabulary features attached to the Gaussians let text locate and edit objects, and spatial questions answered from the memory are right 92% of the time against 37% for a pixel VLM.
 
 <div class="pj-grid narrow">
   <img src="{{ '/assets/img/projects/anyworld_3d_export_vs_native_head.jpg' | relative_url }}" alt="Exported 3D scene vs the baseline's 3DGS output">

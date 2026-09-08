@@ -34,7 +34,7 @@
       year: 2026.05 – 2026.11
       description:
         - AnyWorld — a video world model with a persistent, renderable 3D Gaussian memory (lead author; CVPR 2027 submission). 100% novel-view coverage vs up to 23% unobserved for single-frame reconstruction; exported 3D scene beats Lyra-2's 3DGS output on the same views (17.65 vs 17.04 dB, 33/40 views).
-        - As conditioning, the memory keeps the generator on the recorded drive (38/39 held-out drives tracked more closely than Lyra-2; stops respected 8/9 vs 3/9), 2.2× less flicker, trajectory-speed adherence 1.05–1.1× vs 3–4× for Lyra-2.
+        - As conditioning, the memory keeps the generator on the recorded drive (38/39 held-out drives tracked more closely than Lyra-2; stops respected 8/9 vs 3/9), 2.2× less flicker, trajectory-speed adherence 1.04–1.09× vs 3–4× for Lyra-2.
         - Data: turned 1,000+ hours of raw driving video into training-ready sequences with per-frame metric geometry, computed once and reused across every AnyWorld experiment.
         - Real2Sim2Real with PolaRiS — VLA policies evaluated inside a generated scene; policy ranking matches the real scan (r = 0.87) and holds on the physical DROID station.
         - Closed-loop RL post-training of a diffusion-policy driving model in simulation (unseen-curve completion 1/6 → 3/6, seeded evaluation); closed-loop training/evaluation framework adopted by TRI's end-to-end driving team (patent filed).
