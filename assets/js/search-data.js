@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "Highlights; a full PDF will follow.",
+          description: "Robot learning, world models, and spatial intelligence. Updated October 20, 2026.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -61,14 +61,14 @@ ninja.data = [{
           section: "News",},{id: "news-ginio-accepted-to-corl-2026-687-of-2-094-submissions-a-learned-inertial-measurement-whose-mean-transforms-as-a-vector-and-whose-covariance-transforms-as-a-tensor-under-any-imu-mounting-so-a-physically-remounted-imu-on-a-real-robot-drops-from-8-15-m-to-0-50-m-ate-with-no-retraining-project-page",
           title: 'GINIO accepted to CoRL 2026 (687 of 2,094 submissions). A learned inertial measurement...',
           description: "",
-          section: "News",},{id: "projects-anyworld",
-          title: 'AnyWorld',
-          description: "A video world model with a persistent, renderable 3D Gaussian memory — every frame lifted feed-forward into Gaussians that the generator conditions on and can export.",
+          section: "News",},{id: "projects-anyworld-a-world-model-that-builds-any-world-to-scale",
+          title: 'AnyWorld: A World Model That Builds Any World to Scale',
+          description: "Camera-controlled world generation with persistent, exportable metric 3D memory.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/anyworld/";
             },},{id: "projects-policy-evaluation-in-a-generated-scene",
           title: 'Policy evaluation in a generated scene',
-          description: "VLA policies evaluated inside a scene the world model generated from a single frame — one file changed, everything else byte-identical — with the ranking carried back to a real robot.",
+          description: "VLA policy evaluation in generated 3D scenes, using controlled background comparisons in Isaac Sim. Real-robot validation is planned.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/polaris-real2sim2real/";
             },},{id: "projects-gaussian-world-model",
