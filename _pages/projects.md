@@ -8,7 +8,7 @@ nav_order: 3
 pillars:
   - category: worlds that remember
     label: Foundation world models
-    blurb: A video world model forgets what leaves its context window. Give it a persistent, renderable 3D memory and it keeps seeing what it has already seen — and the scene it builds can be handed to other systems.
+    blurb: Camera-controlled generation with persistent metric 3D memory. A shared scene representation connects motion in meters, visual context across revisits, and reusable 3D output.
   - category: trained in the loop
     label: Post-training with RL
     blurb: Imitation gives a policy the average of what it saw. Reinforcement learning in closed loop lets it improve on its own rollouts — and forces an honest accounting of how often it succeeds.
