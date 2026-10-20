@@ -18,10 +18,17 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "From representation to control — three lines of work, one stack. Status is marked on every card; several of these are in progress.",
+          description: "World generation, multimodal reasoning, and robot learning — with demonstrations and measured outcomes.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
+          },
+        },{id: "nav-notes",
+          title: "notes",
+          description: "Research notes on world models, spatial reasoning, and learning through execution.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
           },
         },{id: "nav-cv",
           title: "cv",
@@ -37,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "news-reductive-lie-neurons-equivariant-networks-for-general-linear-symmetries-on-lie-algebras-accepted-to-icml-2026-and-presented-at-the-conference-in-july-arxiv-project-page",
+        },{id: "post-anyworld-from-generated-video-to-a-reusable-3d-world",
+        
+          title: "AnyWorld: from generated video to a reusable 3D world",
+        
+        description: "How metric camera control, persistent memory, and extra real views connect world generation to 3D assets.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/anyworld/";
+          
+        },
+      },{id: "news-reductive-lie-neurons-equivariant-networks-for-general-linear-symmetries-on-lie-algebras-accepted-to-icml-2026-and-presented-at-the-conference-in-july-arxiv-project-page",
           title: 'Reductive Lie Neurons — equivariant networks for general linear symmetries on Lie algebras...',
           description: "",
           section: "News",},{id: "news-joined-the-world-foundation-model-team-at-toyota-research-institute-los-altos-ca-as-a-research-scientist-intern-building-foundation-models-for-driving-and-robotics",
@@ -61,9 +79,15 @@ ninja.data = [{
           section: "News",},{id: "news-ginio-accepted-to-corl-2026-687-of-2-094-submissions-a-learned-inertial-measurement-whose-mean-transforms-as-a-vector-and-whose-covariance-transforms-as-a-tensor-under-any-imu-mounting-so-a-physically-remounted-imu-on-a-real-robot-drops-from-8-15-m-to-0-50-m-ate-with-no-retraining-project-page",
           title: 'GINIO accepted to CoRL 2026 (687 of 2,094 submissions). A learned inertial measurement...',
           description: "",
+          section: "News",},{id: "news-actionguide-our-work-on-action-grounded-multimodal-reasoning-for-closed-loop-driving-has-been-submitted-to-iclr-2027",
+          title: 'ActionGuide, our work on action-grounded multimodal reasoning for closed-loop driving, has been submitted...',
+          description: "",
+          section: "News",},{id: "news-new-anyworld-demonstrations-cover-metric-control-additional-real-views-revisits-and-3d-export-alongside-a-research-note-explaining-the-memory-design",
+          title: 'New AnyWorld demonstrations cover metric control, additional real views, revisits, and 3D export,...',
+          description: "",
           section: "News",},{id: "projects-anyworld-a-world-model-that-builds-any-world-to-scale",
           title: 'AnyWorld: A World Model That Builds Any World to Scale',
-          description: "Camera-controlled world generation with persistent, exportable metric 3D memory.",
+          description: "Generate video, revisit a scene, and export a world in metric 3D — with one persistent memory.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/anyworld/";
             },},{id: "projects-policy-evaluation-in-a-generated-scene",
@@ -86,11 +110,16 @@ ninja.data = [{
           description: "Equivariant neural networks for general linear symmetries on Lie algebras — twists, covariances and Gaussian shape matrices transform lawfully with the frame they are expressed in.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/reln/";
-            },},{id: "projects-closed-loop-rl-for-a-driving-policy",
-          title: 'Closed-loop RL for a driving policy',
-          description: "A diffusion-policy driving model fine-tuned with closed-loop RL in simulation, with one road-relative reward — closed-loop completion of an unseen curve tripled, seeds and limits included.",
+            },},{id: "projects-rl-post-training-for-closed-loop-driving",
+          title: 'RL post-training for closed-loop driving',
+          description: "Improve a diffusion driving policy through feedback from its own closed-loop rollouts.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/rl-driving/";
+            },},{id: "projects-actionguide-learning-transferable-action-grounded-reasoning-for-closed-loop-driving",
+          title: 'ActionGuide: Learning Transferable Action-Grounded Reasoning for Closed-Loop Driving',
+          description: "Multimodal reasoning that verifies candidate trajectories and guides a frozen driving planner.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/actionguide/";
             },},{id: "projects-ginio",
           title: 'GINIO',
           description: "A learned inertial measurement that obeys the geometry of its sensor — the mean transforms as a vector, the covariance as a tensor — under any IMU mounting, so the estimator downstream never sees a frame it was not trained for.",
