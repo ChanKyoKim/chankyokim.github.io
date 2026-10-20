@@ -57,11 +57,11 @@ The evaluation runs end to end on a background generated from one frame. Policie
 
 Grasp attempts (two targets per episode) counted directly from trajectories with the benchmark's own thresholds.
 
-| background | reach &lt; 20 cm | lift &gt; 6 cm | placed in bowl &lt; 8 cm | policy-ranking correlation |
-|---|---|---|---|---|
-| **PolaRiS scan** (reference) | 50.0% | 26.7% | 12.0% | — |
-| **AnyWorld generated** (ours) | 48.0% | 37.3% | 15.3% | r = 0.870 |
-| **blur4** (4× degraded scan) | 45.3% | 30.0% | 12.0% | r = 0.975 |
+| background                    | reach &lt; 20 cm | lift &gt; 6 cm | placed in bowl &lt; 8 cm | policy-ranking correlation |
+| ----------------------------- | ---------------- | -------------- | ------------------------ | -------------------------- |
+| **PolaRiS scan** (reference)  | 50.0%            | 26.7%          | 12.0%                    | —                          |
+| **AnyWorld generated** (ours) | 48.0%            | 37.3%          | 15.3%                    | r = 0.870                  |
+| **blur4** (4× degraded scan)  | 45.3%            | 30.0%          | 12.0%                    | r = 0.975                  |
 
 <h3 class="pj-h">The baseline, same protocol</h3>
 

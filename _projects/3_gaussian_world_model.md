@@ -60,13 +60,13 @@ Rolled out through the model, error in the target's predicted position is 5.9 mm
 
 <h3 class="pj-h">Four levers</h3>
 
-| # | lever | what it fixed | result |
-|---|---|---|---|
-| L1 | Cap actions at the training distribution's 90th percentile | Given free rein, MPPI proposed pushes far larger than anything in training; the model extrapolated an optimistic outcome and the real object went flying. | 2/24 → 8/24 |
-| L2 | Train the rollout as long as the planner plans | Trained on 20-step rollouts, asked to imagine 30. Fine-tuning at rollout length 38 was the biggest jump; the same fine-tune at length 20 did nothing. | 33% → 44% (6 repeats) |
-| L3 | Double the execution budget (400 → 800 steps) | Most failures at 400 were unfinished, not wrong; 1200 gave nothing back. | 44% → 49% (9 repeats, 216 attempts) |
-| L4 | Retry | Stochastic planner, observable failure. A system-level lever, reported separately. | 49% → ~79% best of 3 → 23/24 in 9 tries |
-| L5 | Train the same model longer | Once the planner-side levers were exhausted, the remaining error was the model's. | 49% → 69% per attempt |
+| #   | lever                                                      | what it fixed                                                                                                                                             | result                                  |
+| --- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| L1  | Cap actions at the training distribution's 90th percentile | Given free rein, MPPI proposed pushes far larger than anything in training; the model extrapolated an optimistic outcome and the real object went flying. | 2/24 → 8/24                             |
+| L2  | Train the rollout as long as the planner plans             | Trained on 20-step rollouts, asked to imagine 30. Fine-tuning at rollout length 38 was the biggest jump; the same fine-tune at length 20 did nothing.     | 33% → 44% (6 repeats)                   |
+| L3  | Double the execution budget (400 → 800 steps)              | Most failures at 400 were unfinished, not wrong; 1200 gave nothing back.                                                                                  | 44% → 49% (9 repeats, 216 attempts)     |
+| L4  | Retry                                                      | Stochastic planner, observable failure. A system-level lever, reported separately.                                                                        | 49% → ~79% best of 3 → 23/24 in 9 tries |
+| L5  | Train the same model longer                                | Once the planner-side levers were exhausted, the remaining error was the model's.                                                                         | 49% → 69% per attempt                   |
 
 <h3 class="pj-h">Eleven that did not work</h3>
 
@@ -76,8 +76,8 @@ Shorter horizons (strategic signal is worth more than per-step accuracy); gentle
 
 The fully instrumented run below is the 49% model; the current model, trained longer, reaches 69% per attempt at the same 30 mm tolerance.
 
-| per attempt | best of 3 tries | tasks ever solved | starting point |
-|---|---|---|---|
+| per attempt            | best of 3 tries                                          | tasks ever solved                             | starting point                                     |
+| ---------------------- | -------------------------------------------------------- | --------------------------------------------- | -------------------------------------------------- |
 | **49.1%** (106 of 216) | **~79%** (79 / 92 / 67% over three disjoint seed groups) | **23 / 24** — only the 650 mm task never fell | **0 / 24** (first learned model, uncapped actions) |
 
 <h3 class="pj-h">Setup</h3>
