@@ -1,19 +1,19 @@
 ---
 layout: page
 title: Policy evaluation in a generated scene
-description: VLA policies evaluated inside a scene the world model generated from a single frame — one file changed, everything else byte-identical — with the ranking carried back to a real robot.
+description: VLA policy evaluation in generated 3D scenes, using controlled background comparisons in Isaac Sim. Real-robot validation is planned.
 status: Toyota Research Institute · 2026 · in progress
 hero_video: assets/video/polaris/ours_pi05_ep11.mp4
-result: Policy ranking preserved (r = 0.87) across five VLA policies · real → sim → real closed on TRI's DROID station.
+result: "Preliminary simulation: policy-ranking correlation r = 0.87 across five VLA policies. Validation on TRI's physical DROID station is planned."
 img: assets/img/projects/polaris_thumb.jpg
 importance: 2
 category: worlds that remember
 permalink: /projects/polaris-real2sim2real/
 ---
 
-<p class="pj-meta">Toyota Research Institute, 2026 · AnyWorld × PolaRiS · food-bussing · Isaac Sim · real2sim2real on the DROID station</p>
+<p class="pj-meta">Toyota Research Institute, 2026 · AnyWorld × PolaRiS · food-bussing · Isaac Sim · DROID validation planned</p>
 
-<p class="pj-lede">PolaRiS evaluates manipulation policies inside a photographed real-to-sim scan of the workcell. We replace that scan with a Gaussian field that <a href="{{ '/projects/anyworld/' | relative_url }}">AnyWorld</a> generated from a single frame, keep everything else byte-identical, and ask whether the evaluation still means anything. <strong>It does — and the answer holds on the real robot.</strong></p>
+<p class="pj-lede">PolaRiS evaluates manipulation policies inside a photographed real-to-sim scan of the workcell. We replace that scan with a Gaussian field that <a href="{{ '/projects/anyworld/' | relative_url }}">AnyWorld</a> generated from a single frame, keep the robot, objects and evaluation protocol fixed, and measure how the background affects policy evaluation. <strong>The results below are preliminary simulation experiments; validation on the physical DROID station is planned.</strong></p>
 
 <div class="pj-hero">
   <video src="{{ '/assets/video/polaris/scan_vs_generated_same_orbit.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
@@ -23,7 +23,7 @@ permalink: /projects/polaris-real2sim2real/
 <div class="pj-stats">
   <div class="pj-stat"><div class="n">1 file</div><div class="l">differs between the two conditions — the background splat. Robot, objects, initial conditions and camera path are byte-identical</div></div>
   <div class="pj-stat"><div class="n">r = 0.87</div><div class="l">policy ranking in the generated scene vs the real scan, over five VLA policies × 15 rollouts each; grasps and placements land at comparable rates</div></div>
-  <div class="pj-stat"><div class="n">real → sim → real</div><div class="l">the same protocol on TRI's physical DROID station: the ranking measured inside the generated scene holds on the real robot</div></div>
+  <div class="pj-stat"><div class="n">Next: DROID</div><div class="l">validate whether policy rankings measured in simulation transfer to TRI's physical robot station</div></div>
 </div>
 
 <h2 class="pj-h">What we did</h2>
@@ -48,7 +48,7 @@ The evaluation runs end to end on a background generated from one frame. Policie
 
 <h2 class="pj-h">Why it matters</h2>
 
-<div class="pj-take">Generated 3D scenes can stand in for scanning in policy evaluation today. The control tells us what the next generation of benchmarks must carry: dynamics — objects that move, occlude and get remembered, not just backgrounds. That is the direction AnyWorld's memory is being pushed.</div>
+<div class="pj-take">These experiments establish a pipeline for evaluating policies against generated visual backgrounds while holding the simulated robot and objects fixed. The blurred-background control motivates evaluations that also test dynamics, occlusion and memory. Transfer to physical-robot performance remains to be validated.</div>
 
 <details class="pj-more" markdown="1">
 <summary>Details — results table, baseline clips, setup</summary>

@@ -31,19 +31,20 @@
   contents:
     - title: Research Scientist Intern, World Foundation Model Team
       institution: Toyota Research Institute, Los Altos, CA, USA
-      year: 2026.05 – 2026.11
+      year: 2026.05 – 2027.04
       description:
-        - AnyWorld — a video world model with a persistent, renderable 3D Gaussian memory (lead author; CVPR 2027 submission). 100% novel-view coverage vs up to 23% unobserved for single-frame reconstruction; exported 3D scene beats Lyra-2's 3DGS output on the same views (17.65 vs 17.04 dB, 33/40 views).
-        - As conditioning, the memory keeps the generator on the recorded drive (38/39 held-out drives tracked more closely than Lyra-2; stops respected 8/9 vs 3/9), 2.2× less flicker, trajectory-speed adherence 1.04–1.09× vs 3–4× for Lyra-2.
-        - Data: turned 1,000+ hours of raw driving video into training-ready sequences with per-frame metric geometry, computed once and reused across every AnyWorld experiment.
-        - Real2Sim2Real with PolaRiS — VLA policies evaluated inside a generated scene; policy ranking matches the real scan (r = 0.87) and holds on the physical DROID station.
-        - Closed-loop RL post-training of a diffusion-policy driving model in simulation (unseen-curve completion 1/6 → 3/6, seeded evaluation); closed-loop training/evaluation framework adopted by TRI's end-to-end driving team (patent filed).
+        - "Diffusion-policy reinforcement learning (patent filed): fine-tuned a driving policy, improving full-route completion from 17% to 80% on unseen routes. Built the training and evaluation framework adopted by TRI's end-to-end driving team."
+        - "ActionGuide (co-author; under review at ICLR 2027): multimodal LLM post-training to check candidate driving paths and select corrective guidance. Evaluated in AlpaSim without retraining the planner."
+        - "AnyWorld (lead author; under review at CVPR 2027): camera-controlled world generation with persistent metric 3D memory that directly exports as a scene asset. Achieved 8% median endpoint displacement error across six evaluation domains, vs 24–65% for compared baselines under the same sensor anchor, without alignment. Broader project training uses video, depth, and language from 3,000+ video hours plus indoor robot scans, on up to 32 GPUs."
+        - "VLA evaluation in generated scenes (AnyWorld × PolaRiS): developing an Isaac Sim pipeline to test policies in generated 3D scenes. Real-robot validation on TRI's DROID station is planned."
     - title: Graduate Student Researcher — Spatial AI & World Models
       institution: University of Michigan (Prof. Maani Ghaffari), Ann Arbor, MI, USA
       year: 2023.09 – present
       description:
-        - Gaussian world models for manipulation (with MBZUAI) — Pushing Gaussians benchmark, 0/24 → 69% per attempt on a 24-task push-to-goal benchmark; offline metrics anti-correlate with closed-loop success.
-        - E3DGS (ICLR 2027 submission), Reductive Lie Neurons (ICML 2026), ReLN-Gaussian-MAE, GINIO — SO(3)-equivariant interface for neural inertial odometry (CoRL 2026; patent filed).
+        - "RoboBelief (joint with Prof. Xingxing Zuo, MBZUAI): fine-tuned X-VLA 0.9B with LoRA and a GRU belief filter; built a MuJoCo/LIBERO benchmark. In closed-loop simulation after 16 or 32 human actions, selected the most likely bowl location on the first choice in 160/160 trials versus 75% for a RoboMME-style memory VLA."
+        - "Gaussian world model and planning: modeled rigid-body motion with 3D Gaussians and integrated a sampling-based planner for closed-loop object pushing. Reached 69% success per attempt across 24 Pushing Gaussians tasks."
+        - "GINIO (CoRL 2026; patent filed): developed an SO(3)-equivariant neural odometry interface. After remounting a Fetch robot's IMU in unseen orientations, reduced absolute trajectory error from 8.15 m to 0.50 m without retraining."
+        - "Geometric learning: E3DGS (ICLR 2027 submission), Reductive Lie Neurons (ICML 2026), and ReLN-Gaussian-MAE."
     - title: Research Assistant, ROAHM Lab
       institution: University of Michigan, Ann Arbor, MI, USA
       year: 2022.10 – 2023.08
@@ -120,4 +121,4 @@
         - Closed-loop policy evaluation (PolaRiS real2sim2real), world-model benchmarks, Isaac Sim, Habitat
     - title: Systems
       items:
-        - PyTorch, JAX, FSDP multi-GPU training (up to 16 GPUs), HuggingFace model packaging; Python, C++
+        - PyTorch, JAX, multi-GPU training (up to 32 GPUs), HuggingFace model packaging; Python, C++
