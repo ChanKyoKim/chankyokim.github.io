@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: From representation to control — three lines of work, one stack. Status is marked on every card; several of these are in progress.
+description: World generation, multimodal reasoning, and robot learning — with demonstrations and measured outcomes.
 nav: true
 nav_order: 3
 pillars:
@@ -11,7 +11,7 @@ pillars:
     blurb: Camera-controlled generation with persistent metric 3D memory. A shared scene representation connects motion in meters, visual context across revisits, and reusable 3D output.
   - category: trained in the loop
     label: Post-training with RL
-    blurb: Imitation gives a policy the average of what it saw. Reinforcement learning in closed loop lets it improve on its own rollouts — and forces an honest accounting of how often it succeeds.
+    blurb: Learn from execution and improve the reasoning around it. Diffusion-policy RL and multimodal guidance connect post-training to closed-loop behavior.
   - category: geometry that moves
     label: Geometry for robots
     blurb: Representations and learned measurements that transform lawfully as the world does — and, on top of them, dynamics as rigid-body motion on the splats, planned through in closed loop.
@@ -32,11 +32,7 @@ pillars:
       {% if project.img %}
         <a class="pj-feature{% if project.hero_layout == 'wide' %} wide{% endif %}" href="{{ project.url | relative_url }}">
           <div class="media">
-            {% if project.hero_video %}
-              <video src="{{ project.hero_video | relative_url }}" autoplay loop muted playsinline poster="{{ project.img | relative_url }}"></video>
-            {% else %}
-              <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
-            {% endif %}
+            <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" loading="lazy">
           </div>
           <div class="body">
             {% if project.status %}<div class="status">{{ project.status }}</div>{% endif %}

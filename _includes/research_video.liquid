@@ -1,0 +1,25 @@
+<figure class="research-media" id="{{ include.id }}">
+  {% if include.title %}
+    <div class="research-media-heading">
+      <h3 id="{{ include.id }}-title">{{ include.title }}</h3>
+      {% if include.duration -%}
+        <span>{{ include.duration }}</span>
+      {%- endif %}
+    </div>
+  {% endif %}
+  <video
+    controls
+    muted
+    playsinline
+    preload="none"
+    poster="{{ include.poster | relative_url }}"
+    {% if include.title %}
+      aria-labelledby="{{ include.id }}-title"
+    {% endif %}
+    aria-describedby="{{ include.id }}-caption"
+  >
+    <source src="{{ include.src | relative_url }}" type="video/mp4">
+    <a href="{{ include.src | relative_url }}">Open the video</a>
+  </video>
+  <figcaption id="{{ include.id }}-caption">{{ include.caption }}</figcaption>
+</figure>
