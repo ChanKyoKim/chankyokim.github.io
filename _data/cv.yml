@@ -6,7 +6,7 @@
     - name: Position
       value: Ph.D. Candidate in Robotics, University of Michigan · Research Scientist Intern, World Foundation Model Team, Toyota Research Institute
     - name: Research
-      value: World models with explicit 3D state, tested in closed loop — persistent Gaussian memory, closed-loop evaluation and RL post-training, equivariant geometric learning
+      value: Robot learning, closed-loop evaluation and RL post-training, equivariant geometric learning
     - name: Languages
       value: English, Korean
 
@@ -35,8 +35,6 @@
       description:
         - "Diffusion-policy reinforcement learning (patent filed): fine-tuned a driving policy, improving full-route completion from 17% to 80% on unseen routes. Built the training and evaluation framework adopted by TRI's end-to-end driving team."
         - "ActionGuide (co-author; submitted to ICLR 2027): multimodal LLM post-training to verify candidate driving paths and provide corrective guidance. Evaluated in AlpaSim with a frozen motion planner."
-        - "AnyWorld (lead author; under review at CVPR 2027): camera-controlled world generation with persistent metric 3D memory that directly exports as a scene asset. Achieved 8% median endpoint displacement error across six evaluation domains, vs 24–65% for compared baselines under the same sensor anchor, without alignment. Broader project training uses video, depth, and language from 3,000+ video hours plus indoor robot scans, on up to 32 GPUs."
-        - "VLA evaluation in generated scenes (AnyWorld × PolaRiS): developing an Isaac Sim pipeline to test policies in generated 3D scenes. Real-robot validation on TRI's DROID station is planned."
     - title: Graduate Student Researcher — Spatial AI & World Models
       institution: University of Michigan (Prof. Maani Ghaffari), Ann Arbor, MI, USA
       year: 2023.09 – present
@@ -118,7 +116,7 @@
         - Video-diffusion world models (Wan, Cosmos), action-conditioned latent dynamics, world-model-in-the-loop RL, MPPI/CEM planning, VLA policies (π0 family)
     - title: Evaluation & simulation
       items:
-        - Closed-loop policy evaluation (PolaRiS real2sim2real), world-model benchmarks, Isaac Sim, Habitat
+        - Closed-loop policy evaluation, world-model benchmarks, Isaac Sim, Habitat
     - title: Systems
       items:
         - PyTorch, JAX, multi-GPU training (up to 32 GPUs), HuggingFace model packaging; Python, C++
