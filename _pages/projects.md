@@ -2,13 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: World generation, multimodal reasoning, and robot learning — with demonstrations and measured outcomes.
+description: Multimodal reasoning, robot learning, and geometric representations — with demonstrations and measured outcomes.
 nav: true
 nav_order: 3
 pillars:
-  - category: worlds that remember
-    label: Foundation world models
-    blurb: Camera-controlled generation with persistent metric 3D memory. A shared scene representation connects motion in meters, visual context across revisits, and reusable 3D output.
   - category: trained in the loop
     label: Post-training with RL
     blurb: Learn from execution and improve the reasoning around it. Diffusion-policy RL and multimodal guidance connect post-training to closed-loop behavior.
