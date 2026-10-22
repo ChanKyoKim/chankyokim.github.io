@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "World generation, multimodal reasoning, and robot learning — with demonstrations and measured outcomes.",
+          description: "Multimodal reasoning, robot learning, and geometric representations — with demonstrations and measured outcomes.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "Robot learning, world models, and spatial intelligence. Updated October 20, 2026.",
+          description: "Robot learning, multimodal reasoning, and spatial intelligence. Updated October 22, 2026.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -44,18 +44,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-anyworld-from-generated-video-to-a-reusable-3d-world",
-        
-          title: "AnyWorld: from generated video to a reusable 3D world",
-        
-        description: "How metric camera control, persistent memory, and extra real views connect world generation to 3D assets.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/anyworld/";
-          
-        },
-      },{id: "news-reductive-lie-neurons-equivariant-networks-for-general-linear-symmetries-on-lie-algebras-accepted-to-icml-2026-and-presented-at-the-conference-in-july-arxiv-project-page",
+        },{id: "news-reductive-lie-neurons-equivariant-networks-for-general-linear-symmetries-on-lie-algebras-accepted-to-icml-2026-and-presented-at-the-conference-in-july-arxiv-project-page",
           title: 'Reductive Lie Neurons — equivariant networks for general linear symmetries on Lie algebras...',
           description: "",
           section: "News",},{id: "news-joined-the-world-foundation-model-team-at-toyota-research-institute-los-altos-ca-as-a-research-scientist-intern-building-foundation-models-for-driving-and-robotics",
@@ -67,14 +56,8 @@ ninja.data = [{
           section: "News",},{id: "news-new-preprint-on-arxiv-e3dgs-unified-geometric-photometric-equivariance-for-3d-gaussian-splatting-via-color-as-geometry-embedding-we-show-that-low-degree-spherical-harmonic-color-is-algebraically-isomorphic-to-a-rank-2-geometric-tensor-enabling-a-unified-mathfrak-gl-3-embedding-for-se-3-equivariant-3dgs-without-clebsch-gordan-tensor-products-arxiv",
           title: 'New preprint on arXiv: E3DGS: Unified Geometric-Photometric Equivariance for 3D Gaussian Splatting via...',
           description: "",
-          section: "News",},{id: "news-anyworld-polaris-vla-policies-grasp-and-place-inside-a-scene-our-world-model-generated-from-a-single-frame-and-the-policy-ranking-matches-the-real-scan-r-0-87-then-holds-on-the-real-robot-project-page",
-          title: 'AnyWorld × PolaRiS: VLA policies grasp and place inside a scene our world...',
-          description: "",
           section: "News",},{id: "news-started-a-collaboration-with-prof-xingxing-zuo-s-group-at-mbzuai-on-gaussian-splatting-world-models-for-robot-manipulation-first-results-a-learned-dynamics-model-over-the-splats-planned-through-with-mppi-takes-a-24-task-push-to-goal-benchmark-from-0-24-to-69-per-attempt-project-page",
           title: 'Started a collaboration with Prof. Xingxing Zuo’s group at MBZUAI on Gaussian-splatting world...',
-          description: "",
-          section: "News",},{id: "news-anyworld-with-tri-s-world-foundation-model-team-a-persistent-renderable-3d-gaussian-memory-keeps-a-video-world-model-on-the-recorded-drive-38-39-held-out-waymo-drives-100-novel-view-coverage-at-45-m-in-submission-to-cvpr-2027-project-page",
-          title: 'AnyWorld (with TRI’s World Foundation Model team): a persistent, renderable 3D Gaussian memory...',
           description: "",
           section: "News",},{id: "news-ginio-accepted-to-corl-2026-687-of-2-094-submissions-a-learned-inertial-measurement-whose-mean-transforms-as-a-vector-and-whose-covariance-transforms-as-a-tensor-under-any-imu-mounting-so-a-physically-remounted-imu-on-a-real-robot-drops-from-8-15-m-to-0-50-m-ate-with-no-retraining-project-page",
           title: 'GINIO accepted to CoRL 2026 (687 of 2,094 submissions). A learned inertial measurement...',
@@ -82,20 +65,7 @@ ninja.data = [{
           section: "News",},{id: "news-actionguide-our-work-on-action-grounded-multimodal-reasoning-for-closed-loop-driving-has-been-submitted-to-iclr-2027",
           title: 'ActionGuide, our work on action-grounded multimodal reasoning for closed-loop driving, has been submitted...',
           description: "",
-          section: "News",},{id: "news-new-anyworld-demonstrations-cover-metric-control-additional-real-views-revisits-and-3d-export-alongside-a-research-note-explaining-the-memory-design",
-          title: 'New AnyWorld demonstrations cover metric control, additional real views, revisits, and 3D export,...',
-          description: "",
-          section: "News",},{id: "projects-anyworld-a-world-model-that-builds-any-world-to-scale",
-          title: 'AnyWorld: A World Model That Builds Any World to Scale',
-          description: "Generate video, revisit a scene, and export a world in metric 3D — with one persistent memory.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/anyworld/";
-            },},{id: "projects-policy-evaluation-in-a-generated-scene",
-          title: 'Policy evaluation in a generated scene',
-          description: "VLA policy evaluation in generated 3D scenes, using controlled background comparisons in Isaac Sim. Real-robot validation is planned.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/polaris-real2sim2real/";
-            },},{id: "projects-gaussian-world-model",
+          section: "News",},{id: "projects-gaussian-world-model",
           title: 'Gaussian World Model',
           description: "A learned dynamics model over a 3D Gaussian scene — rigid-body pose updates on the splats — with a sampling planner in closed loop on top; on the Pushing Gaussians benchmark, from 0/24 to 69% per attempt.",
           section: "Projects",handler: () => {
