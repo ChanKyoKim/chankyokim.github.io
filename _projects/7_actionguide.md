@@ -37,12 +37,12 @@ permalink: /projects/actionguide/
 
 <div class="research-table" markdown="1">
 
-| Guide over frozen DrivoR             | Collision, all ↓ | Collision, at-fault ↓ | Off-road ↓ | Scene score, all ↑ | Scene score, at-fault ↑ |
-| ------------------------------------ | ---------------- | --------------------- | ---------- | ------------------ | ----------------------- |
-| none (DrivoR alone)                  | 41.98%           | 38.17%                | 22.90%     | 42.56              | 43.66                   |
-| + Qwen3-VL-32B                       | 36.64%           | 35.88%                | 24.43%     | 45.45              | 45.45                   |
-| + Cosmos-Reason2-8B (before training) | 39.69%          | 35.88%                | 21.37%     | 45.36              | 47.92                   |
-| **+ ActionGuide**                    | 37.40%           | **35.11%**            | **20.61%** | **48.18**          | **49.50**               |
+| Guide over frozen DrivoR              | Collision, all ↓ | Collision, at-fault ↓ | Off-road ↓ | Scene score, all ↑ | Scene score, at-fault ↑ |
+| ------------------------------------- | ---------------- | --------------------- | ---------- | ------------------ | ----------------------- |
+| none (DrivoR alone)                   | 41.98%           | 38.17%                | 22.90%     | 42.56              | 43.66                   |
+| + Qwen3-VL-32B                        | 36.64%           | 35.88%                | 24.43%     | 45.45              | 45.45                   |
+| + Cosmos-Reason2-8B (before training) | 39.69%           | 35.88%                | 21.37%     | 45.36              | 47.92                   |
+| **+ ActionGuide**                     | 37.40%           | **35.11%**            | **20.61%** | **48.18**          | **49.50**               |
 
 </div>
 <p class="pj-cap">AlpaSim, 131 scenarios. ActionGuide is Cosmos-Reason2-8B after supervised fine-tuning on ActionGuide-Train. All eight guides are in the details below.</p>
@@ -143,35 +143,35 @@ permalink: /projects/actionguide/
 
 <h3 class="pj-h">Closed loop: every guide over frozen DrivoR (AlpaSim, 131 scenarios)</h3>
 
-| Guide                 | Collision, all (%) ↓ | Collision, at-fault (%) ↓ | Off-road (%) ↓ | Scene score, all ↑ | Scene score, at-fault ↑ |
-| --------------------- | -------------------- | ------------------------- | -------------- | ------------------ | ----------------------- |
-| none (DrivoR)         | 41.98                | 38.17                     | 22.90          | 42.56              | 43.66                   |
-| + Qwen2.5-VL-7B       | 38.17                | 36.64                     | 22.90          | 44.72              | 45.38                   |
-| + DriveFusion QA      | 38.93                | 38.17                     | 23.66          | 44.57              | 44.57                   |
-| + Qwen3-VL-8B         | 37.40                | 36.64                     | 25.19          | 45.26              | 45.26                   |
-| + Qwen3.5-4B          | 37.40                | 36.64                     | 26.72          | 45.27              | 45.27                   |
-| + InternVL3.5-8B      | 37.40                | 36.64                     | 24.43          | 44.86              | 44.86                   |
-| + Qwen3-VL-32B        | 36.64                | 35.88                     | 24.43          | 45.45              | 45.45                   |
-| + Cosmos-Reason2-8B   | 39.69                | 35.88                     | 21.37          | 45.36              | 47.92                   |
-| **+ ActionGuide**     | 37.40                | **35.11**                 | **20.61**      | **48.18**          | **49.50**               |
+| Guide               | Collision, all (%) ↓ | Collision, at-fault (%) ↓ | Off-road (%) ↓ | Scene score, all ↑ | Scene score, at-fault ↑ |
+| ------------------- | -------------------- | ------------------------- | -------------- | ------------------ | ----------------------- |
+| none (DrivoR)       | 41.98                | 38.17                     | 22.90          | 42.56              | 43.66                   |
+| + Qwen2.5-VL-7B     | 38.17                | 36.64                     | 22.90          | 44.72              | 45.38                   |
+| + DriveFusion QA    | 38.93                | 38.17                     | 23.66          | 44.57              | 44.57                   |
+| + Qwen3-VL-8B       | 37.40                | 36.64                     | 25.19          | 45.26              | 45.26                   |
+| + Qwen3.5-4B        | 37.40                | 36.64                     | 26.72          | 45.27              | 45.27                   |
+| + InternVL3.5-8B    | 37.40                | 36.64                     | 24.43          | 44.86              | 44.86                   |
+| + Qwen3-VL-32B      | 36.64                | 35.88                     | 24.43          | 45.45              | 45.45                   |
+| + Cosmos-Reason2-8B | 39.69                | 35.88                     | 21.37          | 45.36              | 47.92                   |
+| **+ ActionGuide**   | 37.40                | **35.11**                 | **20.61**      | **48.18**          | **49.50**               |
 
 With the pretrained Cosmos-Reason2-8B guide, 18 of 131 scenarios improve, 13 of them by removing at least one collision or off-road outcome.
 
 <h3 class="pj-h">Action-grounded evaluation: all models (accuracy, %)</h3>
 
-| Model                         | Evidence  | Consequence | Trajectory | Yes ratio | Corrective | Overall   |
-| ----------------------------- | --------- | ----------- | ---------- | --------- | ---------- | --------- |
-| Alpamayo-1.5-10B (VLA)        | 27.41     | 31.20       | 50.13      | 99.87     | 14.70      | 30.86     |
-| ReCogDrive (VLA)              | 25.43     | 37.76       | 50.80      | 2.12      | 16.95      | 32.74     |
-| Qwen-Drive-1.0 (VLA)          | 30.62     | 45.12       | **69.23**  | 52.65     | 21.19      | 41.54     |
-| Qwen2.5-VL-7B                 | 25.68     | 29.60       | 50.00      | 0.00      | 15.63      | 30.23     |
-| DriveFusion QA                | 36.54     | 16.96       | 57.03      | 30.64     | 19.21      | 32.43     |
-| Qwen3-VL-8B                   | 26.67     | 42.72       | 50.80      | 0.80      | 14.57      | 33.69     |
-| Qwen3-VL-32B                  | 41.73     | 52.32       | 51.86      | 2.39      | 17.48      | 40.85     |
-| Qwen3.5-4B                    | 33.09     | 42.40       | 64.46      | 43.10     | 18.54      | 39.62     |
-| InternVL3.5-8B                | 27.65     | 37.92       | 54.77      | 11.67     | 19.34      | 34.92     |
-| Cosmos-Reason2-8B             | 44.94     | 42.08       | 60.34      | 68.17     | 18.28      | 41.41     |
-| **ActionGuide**               | **54.57** | **65.76**   | 61.01      | 54.77     | **32.45**  | **53.45** |
+| Model                  | Evidence  | Consequence | Trajectory | Yes ratio | Corrective | Overall   |
+| ---------------------- | --------- | ----------- | ---------- | --------- | ---------- | --------- |
+| Alpamayo-1.5-10B (VLA) | 27.41     | 31.20       | 50.13      | 99.87     | 14.70      | 30.86     |
+| ReCogDrive (VLA)       | 25.43     | 37.76       | 50.80      | 2.12      | 16.95      | 32.74     |
+| Qwen-Drive-1.0 (VLA)   | 30.62     | 45.12       | **69.23**  | 52.65     | 21.19      | 41.54     |
+| Qwen2.5-VL-7B          | 25.68     | 29.60       | 50.00      | 0.00      | 15.63      | 30.23     |
+| DriveFusion QA         | 36.54     | 16.96       | 57.03      | 30.64     | 19.21      | 32.43     |
+| Qwen3-VL-8B            | 26.67     | 42.72       | 50.80      | 0.80      | 14.57      | 33.69     |
+| Qwen3-VL-32B           | 41.73     | 52.32       | 51.86      | 2.39      | 17.48      | 40.85     |
+| Qwen3.5-4B             | 33.09     | 42.40       | 64.46      | 43.10     | 18.54      | 39.62     |
+| InternVL3.5-8B         | 27.65     | 37.92       | 54.77      | 11.67     | 19.34      | 34.92     |
+| Cosmos-Reason2-8B      | 44.94     | 42.08       | 60.34      | 68.17     | 18.28      | 41.41     |
+| **ActionGuide**        | **54.57** | **65.76**   | 61.01      | 54.77     | **32.45**  | **53.45** |
 
 Yes ratio is diagnostic, with no preferred value: models with similar verification accuracy range from approving almost nothing (0%) to approving almost everything (99.9%), so equal accuracy can mean very different intervention behavior.
 

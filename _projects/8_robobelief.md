@@ -52,17 +52,17 @@ permalink: /projects/robobelief/
 
 <div class="research-table" markdown="1">
 
-| Policy (same X-VLA backbone and data)    | Hidden-state labels | Probability fed to actions | First choice optimal | Task success |
-| ---------------------------------------- | ------------------- | -------------------------- | -------------------- | ------------ |
-| **Belief bottleneck** (training seed 0)  | ✓                   | ✓                          | **87%** (174/200)    | **94.5%**    |
-| Belief bottleneck (training seed 1)      | ✓                   | ✓                          | 81%                  | 88%          |
-| SelfSupBelief (label-free recurrent)     | –                   | latent only                | 56.5%                | 74.5%        |
-| Recurrent + auxiliary labels             | ✓ (side head)       | –                          | 46.5%                | 70.5%        |
-| FrameMem-51 + auxiliary labels           | ✓ (side head)       | –                          | 40%                  | 39.5%        |
-| FrameMem-128 (RoboMME-style)             | –                   | –                          | 39.5%                | 40.5%        |
-| FrameMem-51 (RoboMME-style)              | –                   | –                          | 34.5%                | 26.5%        |
-| Blind (no history)                       | –                   | –                          | 33%                  | 41.5%        |
-| _Floors: uniform / always the habit drawer_ |                  |                            | _33% / 35%_          |              |
+| Policy (same X-VLA backbone and data)       | Hidden-state labels | Probability fed to actions | First choice optimal | Task success |
+| ------------------------------------------- | ------------------- | -------------------------- | -------------------- | ------------ |
+| **Belief bottleneck** (training seed 0)     | ✓                   | ✓                          | **87%** (174/200)    | **94.5%**    |
+| Belief bottleneck (training seed 1)         | ✓                   | ✓                          | 81%                  | 88%          |
+| SelfSupBelief (label-free recurrent)        | –                   | latent only                | 56.5%                | 74.5%        |
+| Recurrent + auxiliary labels                | ✓ (side head)       | –                          | 46.5%                | 70.5%        |
+| FrameMem-51 + auxiliary labels              | ✓ (side head)       | –                          | 40%                  | 39.5%        |
+| FrameMem-128 (RoboMME-style)                | –                   | –                          | 39.5%                | 40.5%        |
+| FrameMem-51 (RoboMME-style)                 | –                   | –                          | 34.5%                | 26.5%        |
+| Blind (no history)                          | –                   | –                          | 33%                  | 41.5%        |
+| _Floors: uniform / always the habit drawer_ |                     |                            | _33% / 35%_          |              |
 
 </div>
 <p class="pj-cap">Search family, 16 and 32 partner acts pooled, 10 fixed scene seeds, 200 runs per policy, no failure filtering. An end-to-end recurrent policy without labels failed to execute (no drawer opened in 55% of runs) and is excluded from the comparison.</p>
@@ -103,14 +103,14 @@ permalink: /projects/robobelief/
 
 <h3 class="pj-h">Search family by horizon (%)</h3>
 
-| Policy                       | First choice optimal, 16 / 32 / 64 acts | Success, 16 / 32 / 64 acts |
-| ---------------------------- | --------------------------------------- | -------------------------- |
-| Belief bottleneck (seed 0)   | **89 / 85 / 85**                        | **92 / 97 / 92**           |
-| Belief bottleneck (seed 1)   | 81 / 81 / 81                            | 86 / 90 / 93               |
-| FrameMem-128                 | 37 / 42 / 39                            | 36 / 45 / 47               |
-| FrameMem-51 + auxiliary      | 41 / 39 / 37                            | 40 / 39 / 41               |
-| FrameMem-51 (seed 0)         | 35 / 34 / 37                            | 30 / 23 / 24               |
-| Blind                        | 32 / 34 / 33                            | 39 / 44 / 41               |
+| Policy                     | First choice optimal, 16 / 32 / 64 acts | Success, 16 / 32 / 64 acts |
+| -------------------------- | --------------------------------------- | -------------------------- |
+| Belief bottleneck (seed 0) | **89 / 85 / 85**                        | **92 / 97 / 92**           |
+| Belief bottleneck (seed 1) | 81 / 81 / 81                            | 86 / 90 / 93               |
+| FrameMem-128               | 37 / 42 / 39                            | 36 / 45 / 47               |
+| FrameMem-51 + auxiliary    | 41 / 39 / 37                            | 40 / 39 / 41               |
+| FrameMem-51 (seed 0)       | 35 / 34 / 37                            | 30 / 23 / 24               |
+| Blind                      | 32 / 34 / 33                            | 39 / 44 / 41               |
 
 Training covered 16 and 32 acts; 64 is beyond the training horizon. At 64 acts no memory variant's interval overlaps the belief policy's, and none excludes the blind policy's.
 
