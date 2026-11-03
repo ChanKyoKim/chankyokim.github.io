@@ -1,21 +1,21 @@
 ---
 layout: page
-title: "RoboBelief: A Belief Bottleneck for Robot Policies That Share the World"
+title: "VLA-Belief: A Belief Bottleneck for Robot Policies That Share the World"
 description: When a person changes the scene while the robot is not watching, a VLA that carries an explicit probability over the hidden state decides far better than one that only remembers frames.
 status: UMich × MBZUAI · 2026 · in progress · simulation
 result: "Posterior-optimal first drawer in 87% of 200 runs vs 40% for the best frame-memory VLA and 56.5% for the best of six controls · 85% beyond the training horizon · the policy follows a swapped-in belief in 179/180 runs."
-img: assets/img/projects/robobelief/robobelief_thumb.jpg
+img: assets/img/projects/vla-belief/vla_belief_thumb.jpg
 importance: 1
 category: beliefs that act
-permalink: /projects/robobelief/
+permalink: /projects/vla-belief/
 ---
 
 <p class="pj-meta">University of Michigan × MBZUAI (Prof. Xingxing Zuo's group), 2026 · X-VLA 0.9B with LoRA · LIBERO kitchen with a scripted human partner · pre-registered closed-loop experiments</p>
 
-<p class="pj-lede">A person opens a drawer, moves the bowl, closes it — while the robot looks elsewhere. Asked to fetch the bowl, the robot has to act on what probably happened. Today's VLAs see only the current frame or keep a memory of past frames. RoboBelief gives the policy an explicit <em>belief</em>: a calibrated probability over the hidden variable ("which drawer is the bowl in?"), updated as events arrive and fed into the action model. <strong>With the same backbone, data and budget, the belief policy opens the posterior-optimal drawer first in 87% of runs; every frame-memory variant stays at the level of a policy that ignores the history.</strong></p>
+<p class="pj-lede">A person opens a drawer, moves the bowl, closes it — while the robot looks elsewhere. Asked to fetch the bowl, the robot has to act on what probably happened. Today's VLAs see only the current frame or keep a memory of past frames. VLA-Belief gives the policy an explicit <em>belief</em>: a calibrated probability over the hidden variable ("which drawer is the bowl in?"), updated as events arrive and fed into the action model. <strong>With the same backbone, data and budget, the belief policy opens the posterior-optimal drawer first in 87% of runs; every frame-memory variant stays at the level of a policy that ignores the history.</strong></p>
 
 <div class="pj-grid">
-  <img src="{{ '/assets/img/projects/robobelief/eval_chain_a_T16_seed2.gif' | relative_url }}" alt="Belief bottleneck opens the middle drawer first; FrameMem-128 and Blind open the top drawer" loading="lazy">
+  <img src="{{ '/assets/img/projects/vla-belief/eval_chain_a_T16_seed2.gif' | relative_url }}" alt="Belief bottleneck opens the middle drawer first; FrameMem-128 and Blind open the top drawer" loading="lazy">
 </div>
 <p class="pj-cap">The same scene for three policies, from the actual evaluation runs (4× speed). The decisive move was masked; the partner's habit, seen earlier in the session, says <em>middle</em> with probability 0.6. <strong>Left:</strong> the belief policy opens the middle drawer first. <strong>Center and right:</strong> frame memory with 128 frames of history, and a policy with no history, both open the top drawer.</p>
 
@@ -34,12 +34,12 @@ permalink: /projects/robobelief/
 <div class="pj-grid c2">
   <figure class="research-media">
     <div class="research-media-heading"><h3>What the robot sees</h3></div>
-    <img src="{{ '/assets/img/projects/robobelief/session_chain_a_T16.gif' | relative_url }}" alt="A session with 16 partner acts, the masked decisive move, then the robot's query" loading="lazy">
+    <img src="{{ '/assets/img/projects/vla-belief/session_chain_a_T16.gif' | relative_url }}" alt="A session with 16 partner acts, the masked decisive move, then the robot's query" loading="lazy">
     <figcaption>One session with 16 partner acts. Grey frames: the decisive move happens while the robot is not watching.</figcaption>
   </figure>
   <figure class="research-media">
     <div class="research-media-heading"><h3>Even a witnessed move</h3></div>
-    <img src="{{ '/assets/img/projects/robobelief/eval_chain_w_T16_seed0.gif' | relative_url }}" alt="Belief policy opens the bottom drawer; FrameMem-128 opens the top drawer although the move was visible" loading="lazy">
+    <img src="{{ '/assets/img/projects/vla-belief/eval_chain_w_T16_seed0.gif' | relative_url }}" alt="Belief policy opens the bottom drawer; FrameMem-128 opens the top drawer although the move was visible" loading="lazy">
     <figcaption>The partner moves the bowl to the bottom drawer in full view. Frame memory still opens the top drawer; the belief policy goes straight to the bottom.</figcaption>
   </figure>
 </div>
@@ -68,7 +68,7 @@ permalink: /projects/robobelief/
 <p class="pj-cap">Search family, 16 and 32 partner acts pooled, 10 fixed scene seeds, 200 runs per policy, no failure filtering. An end-to-end recurrent policy without labels failed to execute (no drawer opened in 55% of runs) and is excluded from the comparison.</p>
 
 <figure class="research-media">
-  <img src="{{ '/assets/img/projects/robobelief/fig4_ladder.png' | relative_url }}" alt="Posterior-optimal first choice across five task families and horizons: belief bottleneck vs best memory variant vs blind" loading="lazy">
+  <img src="{{ '/assets/img/projects/vla-belief/fig4_ladder.png' | relative_url }}" alt="Posterior-optimal first choice across five task families and horizons: belief bottleneck vs best memory variant vs blind" loading="lazy">
   <figcaption>All five task families. Blue: belief bottleneck; orange: best memory variant; green: blind. With a binary hidden variable, memory matches the belief policy in two families (Identity, Temporal) and trails by about 25 points in two (Resume, Long-chain). In the three-way search family it falls to the blind level at every horizon. Error bars: Wilson 95% intervals.</figcaption>
 </figure>
 
@@ -87,11 +87,11 @@ permalink: /projects/robobelief/
 
 <div class="pj-grid c2">
   <figure class="research-media">
-    <img src="{{ '/assets/img/projects/robobelief/fig3_traces.png' | relative_url }}" alt="Filter posterior vs exact posterior over a session for witnessed and masked moves" loading="lazy">
+    <img src="{{ '/assets/img/projects/vla-belief/fig3_traces.png' | relative_url }}" alt="Filter posterior vs exact posterior over a session for witnessed and masked moves" loading="lazy">
     <figcaption>Filter belief (solid) against the exact posterior (dotted) over a session. Witnessed moves give a one-hot belief; after a masked move the belief spreads toward the partner's habit.</figcaption>
   </figure>
   <figure class="research-media">
-    <img src="{{ '/assets/img/projects/robobelief/fig5_bayes.png' | relative_url }}" alt="Filter renormalisation after an empty drawer vs Bayes renormalisation" loading="lazy">
+    <img src="{{ '/assets/img/projects/vla-belief/fig5_bayes.png' | relative_url }}" alt="Filter renormalisation after an empty drawer vs Bayes renormalisation" loading="lazy">
     <figcaption>After the first empty drawer: the filter's renormalised probability against Bayes' rule, 119 events.</figcaption>
   </figure>
 </div>
@@ -131,6 +131,6 @@ Running: two partners with mirrored habits (does the belief read <em>who</em> ac
 <div class="research-next">
   <p class="research-eyebrow">Related · decisions under hidden state</p>
   <h2>ActionGuide: reasoning that checks the action before it is taken</h2>
-  <p>RoboBelief makes a robot policy carry what it cannot see. ActionGuide asks a related question for driving: can a multimodal model judge a concrete trajectory well enough to make a frozen planner drive better in closed loop?</p>
+  <p>VLA-Belief makes a robot policy carry what it cannot see. ActionGuide asks a related question for driving: can a multimodal model judge a concrete trajectory well enough to make a frozen planner drive better in closed loop?</p>
   <a href="{{ '/projects/actionguide/' | relative_url }}">Read about ActionGuide →</a>
 </div>

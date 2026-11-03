@@ -18,7 +18,7 @@
       year: 2024 – present
       description:
         - "Advisor: Prof. Maani Ghaffari. Expected May 2028."
-        - "Fellowships: SK hynix Global Researcher Scholarship (2026); Qualcomm Innovation Fellowship Finalist (2025); Daishin Graduate AI Research Fellowship (2024)."
+        - "Fellowships: Rackham Doctoral Intern Fellowship (2026); Kwang and Kook-Wha Koh Science and Engineering Scholarship (2026); SK hynix Global Researcher Scholarship (2026); Qualcomm Innovation Fellowship Finalist (2025); Daishin Graduate AI Research Fellowship (2024)."
     - title: B.S. in Mechanical and Aerospace Engineering
       institution: Seoul National University, Seoul, KR
       year: 2022
@@ -39,7 +39,7 @@
       institution: University of Michigan (Prof. Maani Ghaffari), Ann Arbor, MI, USA
       year: 2023.09 – present
       description:
-        - "RoboBelief (joint with Prof. Xingxing Zuo, MBZUAI): fine-tuned X-VLA 0.9B with LoRA and a GRU belief filter; built a MuJoCo/LIBERO benchmark. In closed-loop simulation after 16 or 32 human actions, selected the most likely bowl location on the first choice in 160/160 trials versus 75% for a RoboMME-style memory VLA."
+        - "VLA-Belief (joint with Prof. Xingxing Zuo, MBZUAI): fine-tuned X-VLA 0.9B with LoRA and a GRU belief filter; built a MuJoCo/LIBERO benchmark. In closed-loop simulation after 16 or 32 human actions, selected the most likely bowl location on the first choice in 160/160 trials versus 75% for a RoboMME-style memory VLA."
         - "Gaussian world model and planning: modeled rigid-body motion with 3D Gaussians and integrated a sampling-based planner for closed-loop object pushing. Reached 69% success per attempt across 24 Pushing Gaussians tasks."
         - "GINIO (CoRL 2026; patent filed): developed an SO(3)-equivariant neural odometry interface. After remounting a Fetch robot's IMU in unseen orientations, reduced absolute trajectory error from 8.15 m to 0.50 m without retraining."
         - "Geometric learning: E3DGS (ICLR 2027 submission), Reductive Lie Neurons (ICML 2026), and ReLN-Gaussian-MAE."
@@ -64,6 +64,9 @@
   contents:
     - year: 2026
       items:
+        - TartanIMU Challenge Award (ENIO team, invited presentation), IROS 2026 Workshop “Beyond Exteroception: Interoceptive Perception for Resilient Robotics”
+        - Kwang and Kook-Wha Koh Science and Engineering Scholarship, SNUAA-MI (1 of 5 recipients)
+        - Rackham Doctoral Intern Fellowship, University of Michigan
         - SK hynix Global Researcher Scholarship
     - year: 2025
       items:
