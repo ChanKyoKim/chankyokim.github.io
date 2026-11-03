@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "Multimodal reasoning, robot learning, and geometric representations — with demonstrations and measured outcomes.",
+          description: "Multimodal reasoning, belief-driven robot policies, and geometric representations — with demonstrations and measured outcomes.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -87,7 +87,7 @@ ninja.data = [{
               window.location.href = "/projects/rl-driving/";
             },},{id: "projects-actionguide-learning-transferable-action-grounded-reasoning-for-closed-loop-driving",
           title: 'ActionGuide: Learning Transferable Action-Grounded Reasoning for Closed-Loop Driving',
-          description: "Multimodal reasoning that verifies candidate trajectories and guides a frozen driving planner.",
+          description: "A multimodal model that checks a frozen planner&#39;s trajectories and corrects them when none is safe — trained only in simulation, measured on real-world scenes and in closed loop.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/actionguide/";
             },},{id: "projects-ginio",
@@ -95,6 +95,11 @@ ninja.data = [{
           description: "A learned inertial measurement that obeys the geometry of its sensor — the mean transforms as a vector, the covariance as a tensor — under any IMU mounting, so the estimator downstream never sees a frame it was not trained for.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/ginio/";
+            },},{id: "projects-robobelief-a-belief-bottleneck-for-robot-policies-that-share-the-world",
+          title: 'RoboBelief: A Belief Bottleneck for Robot Policies That Share the World',
+          description: "When a person changes the scene while the robot is not watching, a VLA that carries an explicit probability over the hidden state decides far better than one that only remembers frames.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/robobelief/";
             },},{
         id: 'social-email',
         title: 'email',
