@@ -65,6 +65,9 @@ ninja.data = [{
           section: "News",},{id: "news-actionguide-our-work-on-action-grounded-multimodal-reasoning-for-closed-loop-driving-has-been-submitted-to-iclr-2027",
           title: 'ActionGuide, our work on action-grounded multimodal reasoning for closed-loop driving, has been submitted...',
           description: "",
+          section: "News",},{id: "news-new-project-page-vla-belief-when-a-person-changes-the-scene-while-the-robot-is-not-watching-a-vla-with-an-explicit-calibrated-belief-over-the-hidden-state-makes-the-posterior-optimal-first-choice-in-87-of-runs-against-40-for-frame-memory-policies-with-the-same-backbone-and-data",
+          title: 'New project page: VLA-Belief. When a person changes the scene while the robot...',
+          description: "",
           section: "News",},{id: "projects-gaussian-world-model",
           title: 'Gaussian World Model',
           description: "A learned dynamics model over a 3D Gaussian scene — rigid-body pose updates on the splats — with a sampling planner in closed loop on top; on the Pushing Gaussians benchmark, from 0/24 to 69% per attempt.",
@@ -95,11 +98,11 @@ ninja.data = [{
           description: "A learned inertial measurement that obeys the geometry of its sensor — the mean transforms as a vector, the covariance as a tensor — under any IMU mounting, so the estimator downstream never sees a frame it was not trained for.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/ginio/";
-            },},{id: "projects-robobelief-a-belief-bottleneck-for-robot-policies-that-share-the-world",
-          title: 'RoboBelief: A Belief Bottleneck for Robot Policies That Share the World',
+            },},{id: "projects-vla-belief-a-belief-bottleneck-for-robot-policies-that-share-the-world",
+          title: 'VLA-Belief: A Belief Bottleneck for Robot Policies That Share the World',
           description: "When a person changes the scene while the robot is not watching, a VLA that carries an explicit probability over the hidden state decides far better than one that only remembers frames.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/robobelief/";
+              window.location.href = "/projects/vla-belief/";
             },},{
         id: 'social-email',
         title: 'email',
