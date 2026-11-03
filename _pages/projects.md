@@ -2,13 +2,16 @@
 layout: page
 title: projects
 permalink: /projects/
-description: Multimodal reasoning, robot learning, and geometric representations — with demonstrations and measured outcomes.
+description: Multimodal reasoning, belief-driven robot policies, and geometric representations — with demonstrations and measured outcomes.
 nav: true
 nav_order: 3
 pillars:
   - category: trained in the loop
     label: Post-training with RL
     blurb: Learn from execution and improve the reasoning around it. Diffusion-policy RL and multimodal guidance connect post-training to closed-loop behavior.
+  - category: beliefs that act
+    label: Robot policies under hidden state
+    blurb: When someone changes the world while the robot is not watching, remembering frames is not enough. An explicit, calibrated probability over the hidden state — fed into the action model — is what changes the decision.
   - category: geometry that moves
     label: Geometry for robots
     blurb: Representations and learned measurements that transform lawfully as the world does — and, on top of them, dynamics as rigid-body motion on the splats, planned through in closed loop.
